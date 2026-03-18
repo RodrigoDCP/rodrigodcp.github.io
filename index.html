@@ -32,8 +32,7 @@
     }
 
     .glass-card {
-      background: rgba(22, 22, 22, 0.7);
-      backdrop-filter: blur(10px);
+      background: rgba(22, 22, 22, 0.9);
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
@@ -68,6 +67,7 @@
     <div class="text-xl font-extrabold tracking-tight">RODRIGO<span class="text-portfolio-accent">DCP</span></div>
     <nav class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-widest text-gray-400">
       <a href="#" class="hover:text-white transition-colors">Inicio</a>
+      <a href="#planes" class="hover:text-white transition-colors">Planes</a>
       <a href="#proyectos" class="hover:text-white transition-colors">Proyectos</a>
       <a href="https://rodrigodcp.github.io/contencion/RodrigoDCP.html" class="hover:text-white transition-colors">Sobre
         Mí</a>
@@ -86,15 +86,19 @@
 
       <div class="relative z-10">
         <h1 class="text-6xl md:text-8xl font-black mb-6 tracking-tighter">
-          Mis <span class="gradient-text">Proyectos</span>
+          RODRIGO <span class="gradient-text">DCP</span>
         </h1>
         <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12">
-          Explora la colección de mis trabajos de diseño y desarrollo web.
+          Explora mis planes y proyectos de desarrollo web.
         </p>
         <div class="flex flex-wrap justify-center gap-4">
           <a href="#proyectos"
-            class="bg-portfolio-accent hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full transition-all hover:scale-105">
+            class="bg-white/5 hover:bg-white/10 text-white font-bold py-4 px-8 rounded-full transition-all border border-white/10">
             Ver Proyectos
+          </a>
+          <a href="#planes"
+            class="bg-portfolio-accent hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full transition-all hover:scale-105 shadow-lg shadow-portfolio-accent/20">
+            Ver Planes
           </a>
         </div>
       </div>
@@ -104,23 +108,252 @@
       </div>
     </section>
 
+    <!-- Pricing Plans Section -->
+    <section id="planes" class="py-24 px-8 max-w-7xl mx-auto border-t border-zinc-900/50">
+      <div class="mb-16 text-center">
+        <h2 class="text-4xl md:text-5xl font-black mb-4">Planes de <span class="gradient-text">Servicio</span></h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Selecciona el plan que mejor se adapte a las necesidades de tu
+          negocio y mantén tu presencia web impecable.</p>
+        <div class="w-20 h-1.5 bg-portfolio-accent rounded-full mx-auto mt-6"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Plan Básico -->
+        <div
+          class="glass-card rounded-3xl p-8 flex flex-col h-full border-portfolio-accent/20 hover:border-portfolio-accent/50 transition-all duration-500">
+          <div class="mb-8">
+            <h3 class="text-2xl font-bold mb-2">Plan Básico</h3>
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-black text-portfolio-accent">$150</span>
+              <span class="text-gray-500 text-sm">/ mes</span>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm mb-8">Pensado para negocios que solo quieren que la página siga funcionando.
+          </p>
+          <ul class="space-y-4 mb-10 flex-grow text-sm">
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-portfolio-accent flex-shrink-0 mt-0.5"></i>
+              <span>Soporte técnico básico</span>
+            </li>
+            <li class="flex items-start gap-3 pl-8 text-gray-400">
+              <i data-lucide="minus" class="w-4 h-4 mt-1 flex-shrink-0"></i>
+              <span>Hasta 2 cambios pequeños</span>
+            </li>
+            <li class="flex items-start gap-3 pl-8 text-gray-400">
+              <i data-lucide="minus" class="w-4 h-4 mt-1 flex-shrink-0"></i>
+              <span>Actualización de 2 fotos</span>
+            </li>
+            <li class="flex items-start gap-3 pl-8 text-gray-400">
+              <i data-lucide="minus" class="w-4 h-4 mt-1 flex-shrink-0"></i>
+              <span>Actualización de 1 botón</span>
+            </li>
+            <li class="flex items-start gap-3 text-white">
+              <i data-lucide="activity" class="w-5 h-5 text-portfolio-accent flex-shrink-0 mt-0.5"></i>
+              <span>Verificación de funcionamiento</span>
+            </li>
+          </ul>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="https://wa.me/529934035934" target="_blank"
+              class="flex-1 py-4 px-6 rounded-2xl bg-white/5 hover:bg-portfolio-accent text-center font-bold transition-all border border-white/10 flex items-center justify-center gap-2">
+              <i data-lucide="message-circle" class="w-5 h-5"></i> Whatsapp
+            </a>
+            <a href="planes/basico.pdf" target="_blank"
+              class="flex-1 py-4 px-6 rounded-2xl bg-white/5 hover:bg-white/10 text-center font-bold transition-all border border-white/10 flex items-center justify-center gap-2">
+              <i data-lucide="file-text" class="w-5 h-5"></i> Detalles
+            </a>
+          </div>
+        </div>
+
+        <!-- Plan Estándar -->
+        <div class="relative group">
+          <div
+            class="absolute -inset-1 bg-gradient-to-r from-orange-500 to-purple-600 rounded-[2rem] blur opacity-25 group-hover:opacity-40 transition duration-1000">
+          </div>
+          <div class="relative glass-card rounded-3xl p-8 flex flex-col h-full border-orange-500/30">
+            <div
+              class="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-[10px] font-black uppercase tracking-widest py-1 px-4 rounded-full">
+              Popular</div>
+            <div class="mb-8">
+              <h3 class="text-2xl font-bold mb-2 text-white">Plan Estándar</h3>
+              <div class="flex items-baseline gap-1">
+                <span class="text-4xl font-black text-orange-500">$350</span>
+                <span class="text-gray-500 text-sm">/ mes</span>
+              </div>
+            </div>
+            <p class="text-gray-400 text-sm mb-8">Para negocios que actualizan su contenido regularmente.</p>
+            <ul class="space-y-4 mb-10 flex-grow text-sm">
+              <li class="flex items-start gap-3">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5"></i>
+                <span class="font-semibold">Todo lo del Básico +</span>
+              </li>
+              <li class="flex items-start gap-3 pl-8 text-gray-400">
+                <i data-lucide="plus" class="w-4 h-4 mt-1 flex-shrink-0"></i>
+                <span>4 cambios pequeños y 4 fotos</span>
+              </li>
+              <li class="flex items-start gap-3 pl-8 text-gray-400">
+                <i data-lucide="plus" class="w-4 h-4 mt-1 flex-shrink-0"></i>
+                <span>Actualización de 3 botones</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i data-lucide="layers" class="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5"></i>
+                <span>Soporte técnico estándar</span>
+              </li>
+              <li class="flex items-start gap-3 pl-8 text-gray-400">
+                <i data-lucide="plus" class="w-4 h-4 mt-1 flex-shrink-0"></i>
+                <span>Actualización de 1 sección</span>
+              </li>
+              <li class="flex items-start gap-3 pl-8 text-gray-400">
+                <i data-lucide="plus" class="w-4 h-4 mt-1 flex-shrink-0"></i>
+                <span>Añadir 1 sección nueva</span>
+              </li>
+            </ul>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="https://wa.me/529934035934" target="_blank"
+                class="flex-1 py-4 px-6 rounded-2xl bg-orange-500 hover:bg-orange-600 text-center font-bold transition-all shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2">
+                <i data-lucide="message-circle" class="w-5 h-5"></i> Whatsapp
+              </a>
+              <a href="planes/estandar.pdf" target="_blank"
+                class="flex-1 py-4 px-6 rounded-2xl bg-white/10 hover:bg-white/20 text-center font-bold transition-all border border-white/10 flex items-center justify-center gap-2">
+                <i data-lucide="file-text" class="w-5 h-5"></i> Detalles
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plan Negocio/Premium -->
+        <div
+          class="glass-card rounded-3xl p-8 flex flex-col h-full border-cyan-400/20 hover:border-cyan-400/50 transition-all duration-500">
+          <div class="mb-8">
+            <h3 class="text-2xl font-bold mb-2">Plan Premium</h3>
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-black text-cyan-400">$500</span>
+              <span class="text-gray-500 text-sm">/ mes</span>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm mb-8">Para negocios que usan su web como herramienta activa.</p>
+          <ul class="space-y-4 mb-10 flex-grow text-sm">
+            <li class="flex items-start gap-3">
+              <i data-lucide="zap" class="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5"></i>
+              <span class="font-semibold text-white">Soporte técnico Avanzado</span>
+            </li>
+            <li class="flex items-start gap-3 pl-8 text-gray-400">
+              <i data-lucide="check" class="w-4 h-4 mt-1 flex-shrink-0"></i>
+              <span>Actualización total de secciones</span>
+            </li>
+            <li class="flex items-start gap-3 pl-8 text-gray-400">
+              <i data-lucide="check" class="w-4 h-4 mt-1 flex-shrink-0"></i>
+              <span>Añadir 2 secciones estándar</span>
+            </li>
+            <li class="flex items-start gap-3 pl-8 text-gray-400">
+              <i data-lucide="check" class="w-4 h-4 mt-1 flex-shrink-0"></i>
+              <span>Añadir 1 sección compleja</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="shield-check" class="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5"></i>
+              <span>Monitoreo prioritario 24/7</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="star" class="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5"></i>
+              <span class="text-white">Soporte prioritario</span>
+            </li>
+          </ul>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="https://wa.me/529934035934" target="_blank"
+              class="flex-1 py-4 px-6 rounded-2xl bg-white/5 hover:bg-cyan-400 text-center font-bold transition-all border border-white/10 flex items-center justify-center gap-2">
+              <i data-lucide="message-circle" class="w-5 h-5"></i> Whatsapp
+            </a>
+            <a href="planes/premium.pdf" target="_blank"
+              class="flex-1 py-4 px-6 rounded-2xl bg-white/5 hover:bg-white/10 text-center font-bold transition-all border border-white/10 flex items-center justify-center gap-2">
+              <i data-lucide="file-text" class="w-5 h-5"></i> Detalles
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16 p-8 rounded-2xl bg-zinc-900/30 border border-white/5 text-center">
+        <p class="text-gray-500 text-sm max-w-3xl mx-auto italic">
+          <i data-lucide="info" class="w-4 h-4 inline-block mr-1 opacity-50"></i>
+          Los planes, precios y características pueden ser actualizados para mejorar el servicio. Los clientes activos
+          serán informados con anticipación y los cambios aplicarán únicamente a futuras renovaciones.
+        </p>
+      </div>
+    </section>
+    </section>
+
+    <!-- Projects Intro Section (Moved Hero content) -->
+    <section id="proyectos-intro"
+      class="py-24 px-8 max-w-7xl mx-auto border-t border-zinc-900/50 text-center relative overflow-hidden">
+      <!-- Subtle Background -->
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-portfolio-accent/5 rounded-full blur-[80px] pointer-events-none">
+      </div>
+
+      <div class="relative z-10">
+        <h2 class="text-5xl md:text-7xl font-black mb-6 tracking-tighter">
+          Mis <span class="gradient-text">Proyectos</span>
+        </h2>
+        <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12">
+          Explora la colección de mis trabajos de diseño y desarrollo web.
+        </p>
+        <div class="flex justify-center">
+          <div class="w-12 h-1 bg-portfolio-accent rounded-full mb-12"></div>
+        </div>
+      </div>
+    </section>
     <!-- Projects Section -->
-    <section id="proyectos" class="py-24 px-8 max-w-7xl mx-auto">
+    <section id="proyectos" class="py-24 px-8 max-w-7xl mx-auto border-t border-zinc-900/50">
       <div class="mb-16">
         <h2 class="text-4xl font-extrabold mb-4">Proyectos Recientes</h2>
         <div class="w-20 h-1.5 bg-portfolio-accent rounded-full"></div>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project Card: Mare Ha' -->
+        <a href="mareha/index.html" class="group block relative">
+          <div
+            class="absolute -inset-1 bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-300">
+          </div>
+          <div
+            class="relative glass-card rounded-2xl overflow-hidden shadow-xl transition-transform duration-300 group-hover:-translate-y-2 will-change-transform h-full">
+            <!-- Project Image Preview -->
+            <div class="h-64 relative overflow-hidden bg-zinc-900 flex items-center justify-center">
+              <img src="mareha/media/fondo1.jpg" alt="Mare Ha' Restaurante" loading="lazy"
+                class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-portfolio-card via-transparent to-transparent"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="bg-white rounded-full p-4 shadow-2xl opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all">
+                  <img src="mareha/media/logo.jpg" alt="Logo" class="w-12 h-12 rounded-full">
+                </div>
+              </div>
+            </div>
+            <!-- Project Info -->
+            <div class="p-8">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-2xl font-bold">Mare Ha' Restaurante</h3>
+                <span
+                  class="text-xs font-bold uppercase tracking-widest bg-orange-500/10 text-orange-500 py-1 px-3 rounded-full">Gastronomía</span>
+              </div>
+              <p class="text-gray-400 mb-6 leading-relaxed">
+                Landing page premium para restaurante de mariscos en Mérida. Integración de pedidos online, mapa exacto y estética náutica.
+              </p>
+              <div
+                class="flex items-center text-orange-500 font-bold text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
+                Ver Proyecto <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+              </div>
+            </div>
+          </div>
+        </a>
+
         <!-- Project Card: Chicago's Pizza -->
         <a href="chicagospizza/index.html" class="group block relative">
           <div
-            class="absolute -inset-1 bg-gradient-to-r from-portfolio-accent to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
+            class="absolute -inset-1 bg-gradient-to-r from-orange-400 to-orange-600 rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-300">
           </div>
           <div
-            class="relative glass-card rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 group-hover:-translate-y-2">
+            class="relative glass-card rounded-2xl overflow-hidden shadow-xl transition-transform duration-300 group-hover:-translate-y-2 will-change-transform h-full">
             <!-- Project Image Preview -->
             <div class="h-64 relative overflow-hidden bg-zinc-900 flex items-center justify-center">
-              <img src="chicagospizza/media/fondo.jpg" alt="Chicago's Pizza"
+              <img src="chicagospizza/media/fondo.jpg" alt="Chicago's Pizza" loading="lazy"
                 class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-portfolio-card via-transparent to-transparent"></div>
               <div class="absolute inset-0 flex items-center justify-center">
@@ -135,15 +368,13 @@
               <div class="flex justify-between items-start mb-4">
                 <h3 class="text-2xl font-bold">Chicago's Pizza Mérida</h3>
                 <span
-                  class="text-xs font-bold uppercase tracking-widest bg-portfolio-accent/10 text-portfolio-accent py-1 px-3 rounded-full">Landing
-                  Page</span>
+                  class="text-xs font-bold uppercase tracking-widest bg-orange-500/10 text-orange-500 py-1 px-3 rounded-full">Gastronomía</span>
               </div>
               <p class="text-gray-400 mb-6 leading-relaxed">
-                Sitio web moderno y responsivo para una pizzería artesanal. Enfoque en visuales potentes, modularización
-                de código y UX fluida.
+                Sitio web moderno y responsivo para una pizzería artesanal. Enfoque en visuales potentes, modularización de código y UX fluida.
               </p>
               <div
-                class="flex items-center text-portfolio-accent font-bold text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
+                class="flex items-center text-orange-500 font-bold text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
                 Explorar Proyecto <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
               </div>
             </div>
@@ -153,13 +384,13 @@
         <!-- Project Card: Huevos Motuleños -->
         <a href="huevosmotu/index.html" class="group block relative">
           <div
-            class="absolute -inset-1 bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
+            class="absolute -inset-1 bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-300">
           </div>
           <div
-            class="relative glass-card rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 group-hover:-translate-y-2">
+            class="relative glass-card rounded-2xl overflow-hidden shadow-xl transition-transform duration-300 group-hover:-translate-y-2 will-change-transform h-full">
             <!-- Project Image Preview -->
             <div class="h-64 relative overflow-hidden bg-zinc-900 flex items-center justify-center">
-              <img src="huevosmotu/media/fotos/espe.jpg" alt="Huevos Motuleños"
+              <img src="huevosmotu/media/fotos/espe.jpg" alt="Huevos Motuleños" loading="lazy"
                 class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-portfolio-card via-transparent to-transparent"></div>
               <div class="absolute inset-0 flex items-center justify-center">
@@ -177,8 +408,7 @@
                   class="text-xs font-bold uppercase tracking-widest bg-orange-500/10 text-orange-500 py-1 px-3 rounded-full">Gastronomía</span>
               </div>
               <p class="text-gray-400 mb-6 leading-relaxed">
-                El auténtico sabor de la tradición yucateca. Landing page enfocada en resaltar la calidez y el sabor
-                local con ingredientes que se sirven con el alma.
+                El auténtico sabor de la tradición yucateca. Landing page enfocada en resaltar la calidez y el sabor local con ingredientes que se sirven con el alma.
               </p>
               <div
                 class="flex items-center text-orange-500 font-bold text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
@@ -191,13 +421,13 @@
         <!-- Project Card: Contención -->
         <a href="contencion/index.html" class="group block relative">
           <div
-            class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-emerald-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
+            class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-emerald-600 rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-300">
           </div>
           <div
-            class="relative glass-card rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 group-hover:-translate-y-2">
+            class="relative glass-card rounded-2xl overflow-hidden shadow-xl transition-transform duration-300 group-hover:-translate-y-2 will-change-transform h-full">
             <!-- Project Image Preview -->
             <div class="h-64 relative overflow-hidden bg-zinc-900 flex items-center justify-center">
-              <img src="contencion/assets/images/P1.jpg" alt="Contención: Psiquiátrico"
+              <img src="contencion/assets/images/P1.jpg" alt="Contención: Psiquiátrico" loading="lazy"
                 class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-portfolio-card via-transparent to-transparent"></div>
               <div class="absolute inset-0 flex items-center justify-center">
@@ -212,12 +442,10 @@
               <div class="flex justify-between items-start mb-4">
                 <h3 class="text-2xl font-bold">Contención: Psiquiátrico</h3>
                 <span
-                  class="text-xs font-bold uppercase tracking-widest bg-cyan-500/10 text-cyan-400 py-1 px-3 rounded-full">Game
-                  Dev / Horror</span>
+                  class="text-xs font-bold uppercase tracking-widest bg-cyan-500/10 text-cyan-400 py-1 px-3 rounded-full">Game Dev / Horror</span>
               </div>
               <p class="text-gray-400 mb-6 leading-relaxed">
-                Sitio oficial de un juego de terror psicológico con estética retro CRT. Una experiencia inmersiva sobre
-                brechas de contención en un psiquiátrico abandonado.
+                Sitio oficial de un juego de terror psicológico con estética retro CRT. Una experiencia inmersiva sobre brechas de contención en un psiquiátrico abandonado.
               </p>
               <div
                 class="flex items-center text-cyan-400 font-bold text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
@@ -236,7 +464,6 @@
           <h3 class="text-xl font-bold text-gray-700">Próximamente</h3>
           <p class="text-gray-800 mt-2">Nuevos desafíos por venir.</p>
         </div>
-      </div>
       </div>
     </section>
   </main>
@@ -262,6 +489,8 @@
     </button>
     <a href="#"
       class="mobile-nav-link text-3xl font-black tracking-tighter hover:text-portfolio-accent transition-colors">Inicio</a>
+    <a href="#planes"
+      class="mobile-nav-link text-3xl font-black tracking-tighter hover:text-portfolio-accent transition-colors">Planes</a>
     <a href="#proyectos"
       class="mobile-nav-link text-3xl font-black tracking-tighter hover:text-portfolio-accent transition-colors">Proyectos</a>
     <a href="https://rodrigodcp.github.io/contencion/RodrigoDCP.html"
