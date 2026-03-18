@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chicago's Pizza Mérida | Auténtica Deep Dish</title>
+  <!-- Tailwind CSS para estilos rápidos y responsivos -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;800&display=swap"
+    rel="stylesheet">
+  <!-- Lucide Icons -->
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.454.0/dist/umd/lucide.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'chicago-red': '#B91C1C',
+            'chicago-dark': '#121212',
+            'chicago-gold': '#FBBF24',
+          },
+          fontFamily: {
+            'display': ['"Bebas Neue"', 'sans-serif'],
+            'body': ['Montserrat', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="font-body bg-chicago-dark text-gray-100 overflow-x-hidden">
+
+  <!-- Navegación -->
+  <nav
+    class="fixed w-full z-50 transition-all duration-300 bg-chicago-dark/95 backdrop-blur-sm border-b border-gray-800"
+    id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <!-- Logo -->
+        <div class="flex-shrink-0 flex items-center cursor-pointer">
+          <span class="font-display text-3xl tracking-wider text-white">CHICAGO'S <span
+              class="text-chicago-red">PIZZA</span></span>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-8 items-center">
+          <a href="#inicio"
+            class="text-gray-300 hover:text-white transition-colors font-semibold text-sm uppercase tracking-wide">Inicio</a>
+          <a href="#experiencia"
+            class="text-gray-300 hover:text-white transition-colors font-semibold text-sm uppercase tracking-wide">La
+            Experiencia</a>
+          <a href="#menu"
+            class="text-gray-300 hover:text-white transition-colors font-semibold text-sm uppercase tracking-wide">Menú</a>
+          <a href="#sucursales"
+            class="text-gray-300 hover:text-white transition-colors font-semibold text-sm uppercase tracking-wide">Sucursales</a>
+          <a href="#reservar"
+            class="bg-chicago-red hover:bg-red-700 text-white px-6 py-2 rounded-full font-bold transition-transform hover:scale-105 shadow-lg shadow-red-900/50">Ordenar
+            Ahora</a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+            <i data-lucide="menu" class="h-8 w-8"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Panel -->
+    <div id="mobile-menu" class="hidden md:hidden bg-chicago-dark border-b border-gray-800 absolute w-full">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
+        <a href="#inicio"
+          class="block px-3 py-2 text-base font-medium text-white hover:text-chicago-red w-full text-center">Inicio</a>
+        <a href="#experiencia"
+          class="block px-3 py-2 text-base font-medium text-white hover:text-chicago-red w-full text-center">La
+          Experiencia</a>
+        <a href="#menu"
+          class="block px-3 py-2 text-base font-medium text-white hover:text-chicago-red w-full text-center">Menú</a>
+        <a href="#sucursales"
+          class="block px-3 py-2 text-base font-medium text-white hover:text-chicago-red w-full text-center">Sucursales</a>
+        <a href="#reservar"
+          class="block px-3 py-4 mt-2 text-base font-bold text-white bg-chicago-red w-full text-center">Ordenar
+          Ahora</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="inicio" class="hero-bg min-h-screen flex items-center justify-center pt-20 relative">
+    <div class="absolute inset-0 bg-gradient-to-t from-chicago-dark via-transparent to-transparent"></div>
+    <div class="relative z-10 text-center px-4 max-w-5xl mx-auto fade-in-section">
+      <span class="text-chicago-gold font-bold tracking-[0.2em] uppercase text-sm md:text-base mb-4 block">Mérida,
+        Yucatán</span>
+      <div
+        class="inline-flex items-center justify-center bg-white rounded-full p-1 md:p-2 mb-8 shadow-lg mx-auto aspect-square">
+        <img src="media/logo.png" alt="Chicago's Pizza Logo"
+          class="h-auto max-w-[80px] md:max-w-[120px] lg:max-w-[160px]">
+      </div>
+      <p class="text-lg md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto font-light">
+        Más de 4 centímetros de sabor. Salsa pomodoro especial, carnes ahumadas por horas y una cantidad grosera de
+        queso. El verdadero estilo Chicago llegó a Mérida.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#menu"
+          class="bg-chicago-red hover:bg-red-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 inline-flex items-center justify-center gap-2">
+          <i data-lucide="pizza" class="w-5 h-5"></i> Ver Menú
+        </a>
+        <a href="#sucursales"
+          class="bg-transparent border-2 border-white hover:bg-white hover:text-chicago-dark text-white px-8 py-4 rounded-full font-bold text-lg transition-all inline-flex items-center justify-center gap-2">
+          <i data-lucide="map-pin" class="w-5 h-5"></i> Nuestras Sucursales
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- La Experiencia -->
+  <section id="experiencia" class="py-24 bg-chicago-dark relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in-section">
+        <h2 class="font-display text-5xl md:text-6xl text-white mb-4">MÁS QUE UNA PIZZA, <span
+            class="text-chicago-red">UN PASTEL DE SABOR</span></h2>
+        <div class="w-24 h-1 bg-chicago-red mx-auto"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+        <div class="fade-in-section flex flex-col items-center">
+          <div
+            class="w-20 h-20 rounded-full bg-zinc-800 flex items-center justify-center mb-6 text-chicago-red shadow-lg shadow-red-900/20">
+            <i data-lucide="flame" class="w-10 h-10"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 text-white">Carnes Ahumadas</h3>
+          <p class="text-gray-400">Pulled Pork ahumados lentamente por horas para lograr esa suavidad y sabor
+            intenso inconfundible.</p>
+        </div>
+        <div class="fade-in-section flex flex-col items-center delay-100">
+          <div
+            class="w-20 h-20 rounded-full bg-zinc-800 flex items-center justify-center mb-6 text-chicago-gold shadow-lg shadow-yellow-900/20">
+            <i data-lucide="slice" class="w-10 h-10"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 text-white">Queso Desbordante</h3>
+          <p class="text-gray-400">Ese famoso "Exxxtreme cheese" no es un mito. Capas y capas de mezcla de quesos
+            premium fundidos a la perfección.</p>
+        </div>
+        <div class="fade-in-section flex flex-col items-center delay-200">
+          <div
+            class="w-20 h-20 rounded-full bg-zinc-800 flex items-center justify-center mb-6 text-chicago-red shadow-lg shadow-red-900/20">
+            <i data-lucide="chef-hat" class="w-10 h-10"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 text-white">Pomodoro Especial</h3>
+          <p class="text-gray-400">Nuestra salsa secreta, con tomates troceados y especias italianas, corona la pizza en
+            lugar de ir en la base.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Destacados del Menú -->
+  <section id="menu" class="py-24 relative overflow-hidden menu-bg">
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-[2px]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-16 fade-in-section">
+        <div>
+          <h2 class="font-display text-5xl md:text-6xl text-white mb-2">LO MEJOR DEL <span
+              class="text-chicago-red">MENÚ</span></h2>
+          <p class="text-gray-400 text-lg">Especialidades estilo Chicago listas para devorar.</p>
+        </div>
+        <a href="https://www.canva.com/design/DAGQ-6FLWS4/YXrhm0GT-Pn5LK96ZEfNhA/view?utm_content=DAGQ-6FLWS4&utm_campaign=designshare&utm_medium=link&utm_source=editor"
+          target="_blank"
+          class="hidden md:inline-flex items-center text-chicago-gold hover:text-yellow-300 font-semibold uppercase tracking-wider transition-colors">
+          Ver Menú Completo <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Platillo 1 -->
+        <div
+          class="bg-chicago-dark rounded-2xl overflow-hidden group hover:shadow-2xl hover:shadow-red-900/20 transition-all duration-300 border border-zinc-800 fade-in-section">
+          <div class="h-64 overflow-hidden relative">
+            <img src="media/deepdish.jpeg" alt="Deep Dish Clásica"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div
+              class="absolute top-4 right-4 bg-chicago-red text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+              Más Vendida</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-3xl text-white mb-2">La Chicago Deep Dish Pizza</h3>
+            <p class="text-gray-400 mb-4 text-sm">Nuestra joya de la corona. Combinación de una base crujiente,
+              ingredientes frescos, salsas, demasiado queso y un enorme tamaño.</p>
+            <button
+              class="w-full bg-zinc-800 hover:bg-chicago-red text-white py-3 rounded-lg font-bold transition-colors">Ordenar</button>
+          </div>
+        </div>
+
+        <!-- Platillo 2 -->
+        <div
+          class="bg-chicago-dark rounded-2xl overflow-hidden group hover:shadow-2xl hover:shadow-red-900/20 transition-all duration-300 border border-zinc-800 fade-in-section delay-100">
+          <div class="h-64 overflow-hidden relative">
+            <img src="media/slider.jpeg" alt="Brisket Ahumado"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-3xl text-white mb-2">Sliders De Pulled Pork</h3>
+            <p class="text-gray-400 mb-4 text-sm">Tres piezas de pan brioche, cada una rellena con pulled pork bañado
+              en nuestra salsa casera, con aros de cebolla crujientes y un toque de queso cheddar.</p>
+            <button
+              class="w-full bg-zinc-800 hover:bg-chicago-red text-white py-3 rounded-lg font-bold transition-colors">Ordenar</button>
+          </div>
+        </div>
+
+        <!-- Platillo 3 -->
+        <div
+          class="bg-chicago-dark rounded-2xl overflow-hidden group hover:shadow-2xl hover:shadow-red-900/20 transition-all duration-300 border border-zinc-800 fade-in-section delay-200">
+          <div class="h-64 overflow-hidden relative">
+            <img src="media/mas.jpeg" alt="Hamburguesa"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-3xl text-white mb-2">Y Más!</h3>
+            <p class="text-gray-400 mb-4 text-sm">Descubre nuestra variedad de platillos, desde tacos hasta postres,
+              todos preparados con la calidad y sabor que nos caracteriza.</p>
+            <button
+              class="w-full bg-zinc-800 hover:bg-chicago-red text-white py-3 rounded-lg font-bold transition-colors">Ordenar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Otros Menús -->
+      <div class="mt-16 pt-8 border-t border-zinc-800 fade-in-section delay-300">
+        <h3 class="font-display text-3xl text-white mb-6 text-center">OTROS <span class="text-chicago-red">MENÚS</span>
+        </h3>
+        <div class="flex justify-center">
+          <a href="https://bit.ly/chicagospizzamid_menu_bebidas" target="_blank"
+            class="group bg-chicago-dark p-6 rounded-xl border border-zinc-800 hover:border-chicago-red transition-all flex items-center gap-4 max-w-sm w-full">
+            <div
+              class="bg-chicago-red/10 p-3 rounded-lg text-chicago-red group-hover:bg-chicago-red group-hover:text-white transition-colors">
+              <i data-lucide="glass-water" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h4 class="text-white font-bold">Menú de Bebidas</h4>
+              <p class="text-gray-500 text-xs">Cervezas, refrescos y más</p>
+            </div>
+            <i data-lucide="external-link" class="ml-auto w-4 h-4 text-gray-600"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-8 text-center md:hidden">
+        <a href="https://www.canva.com/design/DAGQ-6FLWS4/YXrhm0GT-Pn5LK96ZEfNhA/view?utm_content=DAGQ-6FLWS4&utm_campaign=designshare&utm_medium=link&utm_source=editor"
+          target="_blank" class="inline-flex items-center text-chicago-gold font-semibold uppercase tracking-wider">
+          Ver Menú Completo <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sucursales en Mérida -->
+  <section id="sucursales" class="py-24 bg-chicago-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in-section">
+        <h2 class="font-display text-5xl md:text-6xl text-white mb-4">ENCUÉNTRANOS EN <span
+            class="text-chicago-red">MÉRIDA</span></h2>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto">Dos ubicaciones listas para recibirte con el horno caliente y
+          la cerveza fría.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Temozón Norte -->
+        <div
+          class="bg-zinc-900 p-8 rounded-2xl border border-zinc-800 flex flex-col md:flex-row gap-6 items-center md:items-start fade-in-section">
+          <div class="bg-chicago-red/10 p-4 rounded-full text-chicago-red shrink-0">
+            <i data-lucide="map-pin" class="w-8 h-8"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <h3 class="text-2xl font-bold text-white">Temozón Norte</h3>
+              <span class="bg-zinc-800 text-xs px-2 py-1 rounded text-gray-400">La Original</span>
+            </div>
+            <p class="text-gray-400 mb-4">Nuestra primera casa. Ambiente relajado ideal para cenar con amigos o familia.
+            </p>
+            <div class="space-y-2 mb-6 text-sm text-gray-300">
+              <p class="flex items-center gap-2"><i data-lucide="navigation" class="w-4 h-4 text-chicago-red"></i> Junto
+                al restaurante Tatemar.</p>
+              <p class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-chicago-red"></i> Mar - Dom:
+                1:00 PM - 11:00 PM</p>
+            </div>
+            <div class="flex gap-3">
+              <a href="https://maps.app.goo.gl/EnoFMrdP9V87Hpxv7" target="_blank"
+                class="bg-zinc-800 hover:bg-zinc-700 text-white px-4 py-2 rounded text-sm font-semibold transition-colors">Ver
+                Mapa</a>
+              <a href="https://bit.ly/reservacionmeridadirecto9" target="_blank"
+                class="bg-zinc-800 hover:bg-zinc-700 text-white px-4 py-2 rounded text-sm font-semibold transition-colors flex items-center gap-2 shadow-sm"><i
+                  data-lucide="phone" class="w-4 h-4 text-green-500"></i> Reservar</a>
+              <a href="https://bit.ly/pedidoslaislachicagos" target="_blank"
+                class="bg-chicago-red hover:bg-red-700 text-white px-4 py-2 rounded text-sm font-semibold transition-colors flex items-center gap-2 shadow-lg shadow-red-900/40"><i
+                  data-lucide="shopping-bag" class="w-4 h-4"></i> Pick Up</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Francisco de Montejo -->
+        <div
+          class="bg-zinc-900 p-8 rounded-2xl border border-zinc-800 flex flex-col md:flex-row gap-6 items-center md:items-start fade-in-section delay-100">
+          <div class="bg-chicago-red/10 p-4 rounded-full text-chicago-red shrink-0">
+            <i data-lucide="map-pin" class="w-8 h-8"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <h3 class="text-2xl font-bold text-white">Fco. de Montejo</h3>
+              <span
+                class="bg-chicago-gold/20 text-chicago-gold text-xs px-2 py-1 rounded border border-chicago-gold/30">¡Nueva!</span>
+            </div>
+            <p class="text-gray-400 mb-4">La sucursal más nueva, abierta en Dic 2025. Más amplia y con un diseño
+              increíble.</p>
+            <div class="space-y-2 mb-6 text-sm text-gray-300">
+              <p class="flex items-center gap-2"><i data-lucide="navigation" class="w-4 h-4 text-chicago-red"></i>
+                Frente a la glorieta "Las Palmas".</p>
+              <p class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-chicago-red"></i> Mar - Dom:
+                1:00 PM - 11:00 PM</p>
+            </div>
+            <div class="flex gap-3">
+              <a href="https://maps.app.goo.gl/2fba7W16bfdeAvAL8" target="_blank"
+                class="bg-zinc-800 hover:bg-zinc-700 text-white px-4 py-2 rounded text-sm font-semibold transition-colors">Ver
+                Mapa</a>
+              <a href="https://bit.ly/reservacionfcomontejochicagos" target="_blank"
+                class="bg-zinc-800 hover:bg-zinc-700 text-white px-4 py-2 rounded text-sm font-semibold transition-colors flex items-center gap-2 shadow-sm"><i
+                  data-lucide="phone" class="w-4 h-4 text-green-500"></i> Reservar</a>
+              <a href="https://bit.ly/pedidosfcomontejochicagos" target="_blank"
+                class="bg-chicago-red hover:bg-red-700 text-white px-4 py-2 rounded text-sm font-semibold transition-colors flex items-center gap-2 shadow-lg shadow-red-900/40"><i
+                  data-lucide="shopping-bag" class="w-4 h-4"></i> Pick Up</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banner Rappi / CTA -->
+  <section id="reservar" class="meat-bg py-24 relative">
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-[2px]"></div>
+    <div class="max-w-4xl mx-auto px-4 text-center relative z-10 fade-in-section">
+      <h2 class="font-display text-5xl md:text-7xl text-white mb-6">PIDE POR <span class="text-[#FF441F]">RAPPI</span>
+      </h2>
+      <p class="text-xl text-gray-200 mb-12 max-w-2xl mx-auto">¿No quieres salir de casa? Encuéntranos en Rappi y recibe
+        tu Deep Dish favorita en la puerta de tu hogar.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+        <!-- Rappi Temozon -->
+        <a href="https://bit.ly/rappichicagospizza" target="_blank"
+          class="group bg-zinc-900/90 backdrop-blur-md p-8 rounded-2xl border border-zinc-700 shadow-2xl hover:border-[#FF441F] transition-all hover:scale-[1.02]">
+          <div
+            class="bg-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-lg shadow-orange-900/40 overflow-hidden">
+            <img src="media/rappi.jpg" alt="Rappi" class="w-full h-full object-cover rounded-full">
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-2">Temozón Norte</h3>
+          <p class="text-gray-400 text-sm mb-4">Disponible en la zona norte de Mérida.</p>
+          <span class="inline-block bg-[#FF441F] text-white font-bold py-2 px-6 rounded-lg">Pedir en Rappi</span>
+        </a>
+
+        <!-- Rappi Francisco -->
+        <a href="https://www.rappi.com.mx/restaurantes/1930352445-chicagos-pizza" target="_blank"
+          class="group bg-zinc-900/90 backdrop-blur-md p-8 rounded-2xl border border-zinc-700 shadow-2xl hover:border-[#FF441F] transition-all hover:scale-[1.02]">
+          <div
+            class="bg-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-lg shadow-orange-900/40 overflow-hidden">
+            <img src="media/rappi.jpg" alt="Rappi" class="w-full h-full object-cover rounded-full">
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-2">Fco. de Montejo II</h3>
+          <p class="text-gray-400 text-sm mb-4">Disponible en la zona poniente de Mérida.</p>
+          <span class="inline-block bg-[#FF441F] text-white font-bold py-2 px-6 rounded-lg">Pedir en Rappi</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black py-12 border-t border-zinc-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-center md:text-left">
+        <div class="md:col-span-2">
+          <span class="font-display text-3xl tracking-wider text-white mb-4 block">CHICAGO'S <span
+              class="text-chicago-red">PIZZA</span></span>
+          <p class="text-gray-500 max-w-md mx-auto md:mx-0">Traemos la verdadera tradición culinaria de la Ciudad de los
+            Vientos a la Ciudad Blanca. Auténtica Deep Dish y BBQ.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-bold mb-4 uppercase tracking-wider">Enlaces</h4>
+          <ul class="space-y-2 text-gray-500">
+            <li><a href="https://api.whatsapp.com/send?phone=5219993300332&text=Necesito%20informaci%C3%B3n.%20"
+                target="_blank" class="hover:text-chicago-red transition-colors">Atención a clientes</a></li>
+            <li><a href="https://bit.ly/atencionaclientessam" target="_blank"
+                class="hover:text-chicago-red transition-colors">Quejas y Reclamaciones</a></li>
+            <li><a href="https://bit.ly/facturaci%C3%B3nchicagospizzamerida" target="_blank"
+                class="hover:text-chicago-red transition-colors">Facturación Plaza la Isla</a></li>
+            <li><a href="https://bit.ly/facturacionfcomontejochicagos" target="_blank"
+                class="hover:text-chicago-red transition-colors">Facturación Francisco de Montejo</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-bold mb-4 uppercase tracking-wider">Síguenos</h4>
+          <div class="flex justify-center md:justify-start space-x-4">
+            <a href="https://www.instagram.com/chicagospizzamerida/" target="_blank"
+              class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-white hover:bg-chicago-red transition-colors"><i
+                data-lucide="instagram" class="w-5 h-5"></i></a>
+            <a href="https://www.facebook.com/chicagospizzamexico/?locale=es_LA" target="_blank"
+              class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-white hover:bg-chicago-red transition-colors"><i
+                data-lucide="facebook" class="w-5 h-5"></i></a>
+            <a href="https://www.tiktok.com/@chicagospizzamerida" target="_blank"
+              class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-white hover:bg-chicago-red transition-colors">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M21 8V9C18.2386 9 16 6.76142 16 4V3H13V15.5C13 17.433 11.433 19 9.5 19C7.567 19 6 17.433 6 15.5C6 13.567 7.567 12 9.5 12C9.56306 12 10.0315 12.0163 10.6387 12.0489L10.7423 12.0545V9.01991C10.3533 9.00685 9.94056 9 9.5 9C5.91015 9 3 11.9101 3 15.5C3 19.0899 5.91015 22 9.5 22C13.0899 22 16 19.0899 16 15.5V9.28258C17.6534 10.3601 19.6453 11 21 11V8" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="border-t border-zinc-800 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm">
+        <p>&copy; 2026 Chicago's Pizza Mérida. Todos los derechos reservados.</p>
+        <p class="mt-2 md:mt-0">Diseñado como propuesta comercial.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/script.js?v=1.1"></script>
+</body>
+
+</html>
