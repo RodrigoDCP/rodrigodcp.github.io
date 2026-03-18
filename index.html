@@ -72,6 +72,9 @@
       <a href="https://rodrigodcp.github.io/contencion/RodrigoDCP.html" class="hover:text-white transition-colors">Sobre
         Mí</a>
     </nav>
+    <button class="md:hidden text-gray-400 hover:text-white transition-colors" id="menu-toggle">
+      <i data-lucide="menu" class="w-6 h-6"></i>
+    </button>
   </header>
 
   <main>
@@ -251,6 +254,21 @@
     <p class="text-gray-600 text-sm italic">&copy; 2026 Rodrigo DCP. Todos los derechos reservados.</p>
   </footer>
 
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu"
+    class="fixed inset-0 z-[60] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center space-y-8 transition-all duration-500 opacity-0 pointer-events-none">
+    <button class="absolute top-8 right-8 text-gray-400 hover:text-white transition-colors" id="menu-close">
+      <i data-lucide="x" class="w-8 h-8"></i>
+    </button>
+    <a href="#"
+      class="mobile-nav-link text-3xl font-black tracking-tighter hover:text-portfolio-accent transition-colors">Inicio</a>
+    <a href="#proyectos"
+      class="mobile-nav-link text-3xl font-black tracking-tighter hover:text-portfolio-accent transition-colors">Proyectos</a>
+    <a href="https://rodrigodcp.github.io/contencion/RodrigoDCP.html"
+      class="mobile-nav-link text-3xl font-black tracking-tighter hover:text-portfolio-accent transition-colors">Sobre
+      Mí</a>
+  </div>
+
   <script>
     // Inicializar iconos de Lucide
     lucide.createIcons();
@@ -263,6 +281,25 @@
       } else {
         header.classList.remove('bg-portfolio-bg/80', 'backdrop-blur-md', 'border-b', 'border-white/10');
       }
+    });
+
+    // Lógica del menú móvil
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelectorAll('.mobile-nav-link');
+
+    const toggleMenu = () => {
+      mobileMenu.classList.toggle('opacity-0');
+      mobileMenu.classList.toggle('pointer-events-none');
+      document.body.classList.toggle('overflow-hidden');
+    };
+
+    menuToggle.addEventListener('click', toggleMenu);
+    menuClose.addEventListener('click', toggleMenu);
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', toggleMenu);
     });
   </script>
 </body>
