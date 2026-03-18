@@ -1,0 +1,16 @@
+/* Estilos personalizados del diseño de usuario */
+.hero-bg {
+    background-image: linear-gradient(rgba(45, 42, 38, 0.7), rgba(45, 42, 38, 0.5)), url('../media/fotos/portada.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.food-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Animación suave para imágenes */
+img {
+    transition: transform 0.3s ease-in-out;
+}

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Quieres ser mi San Valentín?</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #ffe6e6;
+      font-family: 'Nunito', sans-serif;
+      overflow: hidden;
+      /* Para evitar scroll cuando el botón "No" se mueva */
+      text-align: center;
+    }
+
+    .container {
+      position: relative;
+      z-index: 10;
+      padding: 20px;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h1 {
+      font-family: 'Fredoka One', cursive;
+      color: #ff4d6d;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 0px #fff;
+    }
+
+    .trailer-container {
+      width: 100%;
+      max-width: 400px;
+      margin: 20px auto;
+      position: relative;
+      padding-bottom: 56.25%;
+      /* 16:9 */
+      height: 0;
+      background: #000;
+      border: 3px solid #ff4d6d;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(255, 77, 109, 0.2);
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .trailer-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .success-image-container {
+      margin: 20px auto;
+      max-width: 300px;
+      width: 100%;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .success-image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      /* Móvil primero */
+      gap: 15px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 30px;
+      min-height: 150px;
+      /* Espacio reservado para los botones */
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      font-family: 'Fredoka One', cursive;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    #yesBtn {
+      background-color: #ff4d6d;
+      color: white;
+      z-index: 20;
+    }
+
+    #noBtn {
+      background-color: #ffffff;
+      color: #ff4d6d;
+      border: 2px solid #ff4d6d;
+      position: relative;
+      /* Necesario para moverlo */
+    }
+
+    /* Clase para ocultar elementos al final */
+    .hidden {
+      display: none !important;
+    }
+
+    /* Pantalla de éxito */
+    #success-message {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      animation: popIn 0.5s ease;
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Confeti */
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 100;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container" id="main-content">
+    <div class="trailer-container">
+      <iframe src="https://www.youtube-nocookie.com/embed/n2Cld9aU1vU?autoplay=1&mute=1&loop=1&playlist=n2Cld9aU1vU"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+
+    <h1>¿Quieres ser mi San Valentín?</h1>
+    <p style="color: #666; font-size: 1.1rem;">(Di que sí por favor 🥺)</p>
+
+    <div class="buttons">
+      <button id="yesBtn" onclick="acceptLove()">¡Siiii!</button>
+      <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">No</button>
+    </div>
+  </div>
+
+  <div id="success-message" class="container">
+    <div class="success-image-container">
+      <img src="../assets/images/SV.png" alt="Happy Cat">
+    </div>
+    <h1>¡SABÍA QUE DIRÍAS QUE SÍ! ❤️</h1>
+    <p style="font-size: 1.3rem; color: #ff4d6d;">Nos vemos el 14, te amo mucho 😍.</p>
+  </div>
+
+  <canvas id="confetti"></canvas>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const mainContent = document.getElementById('main-content');
+    const successMessage = document.getElementById('success-message');
+
+    // Frases graciosas para el botón "No"
+    const noTexts = [
+      "¿Segura?",
+      "¡Piénsalo bien!",
+      "¿Me vas a romper el corazón?",
+      "¡Mira el otro botón!",
+      "¡No te hagas la difícil!",
+      "¡Última oportunidad!"
+    ];
+    let textIndex = 0;
+    let yesSize = 1.2; // Tamaño inicial en rem
+    let noSize = 1.2; // Tamaño inicial en rem
+
+    function moveButton() {
+      // 1. Cambiar texto del botón No
+      noBtn.innerText = noTexts[textIndex];
+      textIndex = (textIndex + 1) % noTexts.length;
+
+      // 2. Hacer el botón "Sí" más grande
+      yesSize += 0.4;
+      yesBtn.style.fontSize = `${yesSize}rem`;
+      yesBtn.style.padding = `${15 + (yesSize * 5)}px ${30 + (yesSize * 5)}px`;
+
+      // 3. Hacer el botón "No" más pequeño
+      noSize = Math.max(0.5, noSize - 0.1); // No dejar que desaparezca del todo, solo muy pequeño
+      noBtn.style.fontSize = `${noSize}rem`;
+
+      // 4. Mover el botón "No" a una posición aleatoria
+      // Calculamos el ancho y alto de la ventana
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+
+      // Calculamos una posición aleatoria asegurando que no se salga de la pantalla
+      // Usamos 'fixed' para que se salga del flujo normal y pueda ir a cualquier lado
+      noBtn.style.position = 'fixed';
+
+      const randomX = Math.random() * (windowWidth - 100); // 100px de margen
+      const randomY = Math.random() * (windowHeight - 100);
+
+      noBtn.style.left = randomX + 'px';
+      noBtn.style.top = randomY + 'px';
+    }
+
+    function acceptLove() {
+      mainContent.style.display = 'none';
+      successMessage.style.display = 'flex';
+      startConfetti();
+    }
+
+    // --- Lógica simple de Confeti ---
+    const canvas = document.getElementById("confetti");
+    const ctx = canvas.getContext("2d");
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function startConfetti() {
+      for (let i = 0; i < 100; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+          size: Math.random() * 10 + 5,
+          speedY: Math.random() * 3 + 2,
+          speedX: Math.random() * 2 - 1
+        });
+      }
+      animateConfetti();
+    }
+
+    function animateConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p, index) => {
+        p.y += p.speedY;
+        p.x += p.speedX;
+        ctx.fillStyle = p.color;
+        ctx.fillRect(p.x, p.y, p.size, p.size);
+
+        if (p.y > canvas.height) particles[index].y = -10;
+      });
+      requestAnimationFrame(animateConfetti);
+    }
+  </script>
+</body>
+
+</html>
