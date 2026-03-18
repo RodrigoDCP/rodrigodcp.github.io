@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rodrigo DCP | Portafolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+    rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     tailwind.config = {
@@ -29,23 +30,34 @@
       background-color: #0a0a0a;
       color: #fafafa;
     }
+
     .glass-card {
       background: rgba(22, 22, 22, 0.7);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
+
     .gradient-text {
       background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+
     .animate-float {
       animation: float 6s ease-in-out infinite;
     }
+
     @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
     }
   </style>
 </head>
@@ -57,7 +69,8 @@
     <nav class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-widest text-gray-400">
       <a href="#" class="hover:text-white transition-colors">Inicio</a>
       <a href="#proyectos" class="hover:text-white transition-colors">Proyectos</a>
-      <a href="#" class="hover:text-white transition-colors">Contacto</a>
+      <a href="https://rodrigodcp.github.io/contencion/RodrigoDCP.html" class="hover:text-white transition-colors">Sobre
+        Mí</a>
     </nav>
   </header>
 
@@ -76,12 +89,13 @@
           Explora la colección de mis trabajos de diseño y desarrollo web.
         </p>
         <div class="flex flex-wrap justify-center gap-4">
-          <a href="#proyectos" class="bg-portfolio-accent hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full transition-all hover:scale-105">
+          <a href="#proyectos"
+            class="bg-portfolio-accent hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full transition-all hover:scale-105">
             Ver Proyectos
           </a>
         </div>
       </div>
-      
+
       <div class="absolute bottom-10 animate-bounce">
         <i data-lucide="chevron-down" class="text-gray-600"></i>
       </div>
@@ -92,17 +106,23 @@
       <div class="mb-16">
         <h2 class="text-4xl font-extrabold mb-4">Proyectos Recientes</h2>
         <div class="w-20 h-1.5 bg-portfolio-accent rounded-full"></div>
-      </div>      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Project Card: Chicago's Pizza -->
         <a href="chicagospizza/index.html" class="group block relative">
-          <div class="absolute -inset-1 bg-gradient-to-r from-portfolio-accent to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-          <div class="relative glass-card rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 group-hover:-translate-y-2">
+          <div
+            class="absolute -inset-1 bg-gradient-to-r from-portfolio-accent to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
+          </div>
+          <div
+            class="relative glass-card rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 group-hover:-translate-y-2">
             <!-- Project Image Preview -->
             <div class="h-64 relative overflow-hidden bg-zinc-900 flex items-center justify-center">
-              <img src="chicagospizza/media/fondo.jpg" alt="Chicago's Pizza" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500">
+              <img src="chicagospizza/media/fondo.jpg" alt="Chicago's Pizza"
+                class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-portfolio-card via-transparent to-transparent"></div>
               <div class="absolute inset-0 flex items-center justify-center">
-                <div class="bg-white rounded-full p-4 shadow-2xl opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all">
+                <div
+                  class="bg-white rounded-full p-4 shadow-2xl opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all">
                   <img src="chicagospizza/media/logo.png" alt="Logo" class="w-12 h-12">
                 </div>
               </div>
@@ -111,12 +131,16 @@
             <div class="p-8">
               <div class="flex justify-between items-start mb-4">
                 <h3 class="text-2xl font-bold">Chicago's Pizza Mérida</h3>
-                <span class="text-xs font-bold uppercase tracking-widest bg-portfolio-accent/10 text-portfolio-accent py-1 px-3 rounded-full">Landing Page</span>
+                <span
+                  class="text-xs font-bold uppercase tracking-widest bg-portfolio-accent/10 text-portfolio-accent py-1 px-3 rounded-full">Landing
+                  Page</span>
               </div>
               <p class="text-gray-400 mb-6 leading-relaxed">
-                Sitio web moderno y responsivo para una pizzería artesanal. Enfoque en visuales potentes, modularización de código y UX fluida.
+                Sitio web moderno y responsivo para una pizzería artesanal. Enfoque en visuales potentes, modularización
+                de código y UX fluida.
               </p>
-              <div class="flex items-center text-portfolio-accent font-bold text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
+              <div
+                class="flex items-center text-portfolio-accent font-bold text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
                 Explorar Proyecto <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
               </div>
             </div>
@@ -125,14 +149,19 @@
 
         <!-- Project Card: Huevos Motuleños -->
         <a href="huevosmotu/index.html" class="group block relative">
-          <div class="absolute -inset-1 bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-          <div class="relative glass-card rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 group-hover:-translate-y-2">
+          <div
+            class="absolute -inset-1 bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
+          </div>
+          <div
+            class="relative glass-card rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 group-hover:-translate-y-2">
             <!-- Project Image Preview -->
             <div class="h-64 relative overflow-hidden bg-zinc-900 flex items-center justify-center">
-              <img src="huevosmotu/media/fotos/espe.jpg" alt="Huevos Motuleños" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500">
+              <img src="huevosmotu/media/fotos/espe.jpg" alt="Huevos Motuleños"
+                class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-portfolio-card via-transparent to-transparent"></div>
               <div class="absolute inset-0 flex items-center justify-center">
-                <div class="bg-white rounded-full p-2 shadow-2xl opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all">
+                <div
+                  class="bg-white rounded-full p-2 shadow-2xl opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all">
                   <img src="huevosmotu/media/fotos/logo.png" alt="Logo" class="w-16 h-16 rounded-full object-cover">
                 </div>
               </div>
@@ -141,12 +170,15 @@
             <div class="p-8">
               <div class="flex justify-between items-start mb-4">
                 <h3 class="text-2xl font-bold">Huevos Motuleños & Más</h3>
-                <span class="text-xs font-bold uppercase tracking-widest bg-orange-500/10 text-orange-500 py-1 px-3 rounded-full">Gastronomía</span>
+                <span
+                  class="text-xs font-bold uppercase tracking-widest bg-orange-500/10 text-orange-500 py-1 px-3 rounded-full">Gastronomía</span>
               </div>
               <p class="text-gray-400 mb-6 leading-relaxed">
-                El auténtico sabor de la tradición yucateca. Landing page enfocada en resaltar la calidez y el sabor local con ingredientes que se sirven con el alma.
+                El auténtico sabor de la tradición yucateca. Landing page enfocada en resaltar la calidez y el sabor
+                local con ingredientes que se sirven con el alma.
               </p>
-              <div class="flex items-center text-orange-500 font-bold text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
+              <div
+                class="flex items-center text-orange-500 font-bold text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
                 Explorar Proyecto <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
               </div>
             </div>
@@ -155,14 +187,19 @@
 
         <!-- Project Card: Contención -->
         <a href="contencion/index.html" class="group block relative">
-          <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-emerald-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-          <div class="relative glass-card rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 group-hover:-translate-y-2">
+          <div
+            class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-emerald-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
+          </div>
+          <div
+            class="relative glass-card rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 group-hover:-translate-y-2">
             <!-- Project Image Preview -->
             <div class="h-64 relative overflow-hidden bg-zinc-900 flex items-center justify-center">
-              <img src="contencion/assets/images/P1.jpg" alt="Contención: Psiquiátrico" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500">
+              <img src="contencion/assets/images/P1.jpg" alt="Contención: Psiquiátrico"
+                class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-portfolio-card via-transparent to-transparent"></div>
               <div class="absolute inset-0 flex items-center justify-center">
-                <div class="bg-black/50 backdrop-blur-sm rounded-full p-4 border border-cyan-500/30 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all">
+                <div
+                  class="bg-black/50 backdrop-blur-sm rounded-full p-4 border border-cyan-500/30 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all">
                   <i data-lucide="ghost" class="w-8 h-8 text-cyan-400"></i>
                 </div>
               </div>
@@ -171,12 +208,16 @@
             <div class="p-8">
               <div class="flex justify-between items-start mb-4">
                 <h3 class="text-2xl font-bold">Contención: Psiquiátrico</h3>
-                <span class="text-xs font-bold uppercase tracking-widest bg-cyan-500/10 text-cyan-400 py-1 px-3 rounded-full">Game Dev / Horror</span>
+                <span
+                  class="text-xs font-bold uppercase tracking-widest bg-cyan-500/10 text-cyan-400 py-1 px-3 rounded-full">Game
+                  Dev / Horror</span>
               </div>
               <p class="text-gray-400 mb-6 leading-relaxed">
-                Sitio oficial de un juego de terror psicológico con estética retro CRT. Una experiencia inmersiva sobre brechas de contención en un psiquiátrico abandonado.
+                Sitio oficial de un juego de terror psicológico con estética retro CRT. Una experiencia inmersiva sobre
+                brechas de contención en un psiquiátrico abandonado.
               </p>
-              <div class="flex items-center text-cyan-400 font-bold text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
+              <div
+                class="flex items-center text-cyan-400 font-bold text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
                 Explorar Proyecto <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
               </div>
             </div>
@@ -184,7 +225,8 @@
         </a>
 
         <!-- Placeholder Card for next project -->
-        <div class="relative glass-card rounded-2xl overflow-hidden opacity-30 border-dashed border-2 border-gray-800 flex flex-col items-center justify-center p-12 text-center h-full min-h-[400px]">
+        <div
+          class="relative glass-card rounded-2xl overflow-hidden opacity-30 border-dashed border-2 border-gray-800 flex flex-col items-center justify-center p-12 text-center h-full min-h-[400px]">
           <div class="bg-zinc-900/50 rounded-full p-6 mb-6">
             <i data-lucide="code-2" class="w-10 h-10 text-gray-700"></i>
           </div>
@@ -192,16 +234,19 @@
           <p class="text-gray-800 mt-2">Nuevos desafíos por venir.</p>
         </div>
       </div>
-    </div>
-  </section>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
   <footer class="py-12 border-t border-zinc-900 text-center">
     <div class="mb-8 flex justify-center space-x-6">
-      <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="github" class="w-6 h-6"></i></a>
-      <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
-      <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="mail" class="w-6 h-6"></i></a>
+      <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="github"
+          class="w-6 h-6"></i></a>
+      <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="linkedin"
+          class="w-6 h-6"></i></a>
+      <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="mail"
+          class="w-6 h-6"></i></a>
     </div>
     <p class="text-gray-600 text-sm italic">&copy; 2026 Rodrigo DCP. Todos los derechos reservados.</p>
   </footer>
