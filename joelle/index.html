@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zapatería Joelle | Calzado elegante para mujer en Mérida</title>
+  <!-- Tailwind CSS para el diseño rápido y responsivo -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Playfair Display (Títulos) y Montserrat (Textos) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            joelle: {
+              light: '#FDF8F5',
+              nude: '#E8D5CC',
+              rose: '#C58C8C',
+              dark: '#4A3B3B',
+              accent: '#A66B6B'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Animaciones personalizadas */
+    .fade-in {
+      animation: fadeIn 1s ease-in forwards;
+    }
+
+    .slide-up {
+      animation: slideUp 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Hover de imágenes de producto */
+    .product-card img {
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Ocultar scrollbar pero permitir scroll */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+
+<body class="bg-joelle-light text-joelle-dark font-sans antialiased">
+
+  <!-- Notificación Toast (Mensajes) -->
+  <div id="toast"
+    class="fixed top-24 right-5 bg-joelle-dark text-white px-6 py-3 rounded-md shadow-lg transform transition-all duration-300 translate-x-full opacity-0 z-50 flex items-center gap-2">
+    <i data-lucide="check-circle" class="w-5 h-5 text-joelle-nude"></i>
+    <span id="toast-message">Mensaje</span>
+  </div>
+
+  <!-- Navegación -->
+  <nav id="navbar" class="fixed w-full z-40 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex-shrink-0 flex items-center gap-4">
+          <!-- Logo de marca -->
+          <img src="media/logo.jpg" alt="Joelle Logo"
+            class="w-12 h-12 rounded-full object-cover border border-gray-100 shadow-sm" />
+          <a href="#" class="font-serif text-3xl font-bold tracking-wider text-joelle-dark">
+            JOELLE<span class="text-joelle-accent text-4xl">.</span>
+          </a>
+        </div>
+
+        <!-- Menú Desktop -->
+        <div class="hidden md:flex space-x-8 items-center">
+          <a href="#inicio"
+            class="text-sm uppercase tracking-widest hover:text-joelle-accent transition-colors">Inicio</a>
+          <a href="#coleccion"
+            class="text-sm uppercase tracking-widest hover:text-joelle-accent transition-colors">Colección</a>
+          <a href="#nosotros"
+            class="text-sm uppercase tracking-widest hover:text-joelle-accent transition-colors">Nosotros</a>
+          <a href="#visitanos"
+            class="text-sm uppercase tracking-widest hover:text-joelle-accent transition-colors">Visítanos</a>
+        </div>
+
+        <!-- Botón Menú Móvil -->
+        <div class="md:hidden flex items-center">
+          <button onclick="toggleMobileMenu()" class="text-joelle-dark hover:text-joelle-accent focus:outline-none">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menú Móvil -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+        <a href="#inicio" onclick="toggleMobileMenu()"
+          class="block px-3 py-2 text-base font-medium text-joelle-dark hover:text-joelle-accent">Inicio</a>
+        <a href="#coleccion" onclick="toggleMobileMenu()"
+          class="block px-3 py-2 text-base font-medium text-joelle-dark hover:text-joelle-accent">Colección</a>
+        <a href="#nosotros" onclick="toggleMobileMenu()"
+          class="block px-3 py-2 text-base font-medium text-joelle-dark hover:text-joelle-accent">Nosotros</a>
+        <a href="#visitanos" onclick="toggleMobileMenu()"
+          class="block px-3 py-2 text-base font-medium text-joelle-dark hover:text-joelle-accent">Visítanos</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="inicio" class="relative h-screen flex items-center justify-center overflow-hidden">
+    <!-- Imagen de fondo -->
+    <div class="absolute inset-0 z-0">
+      <img src="media/fondo.jpg" alt="Zapatos de mujer elegantes" class="w-full h-full object-cover object-center" />
+      <div class="absolute inset-0 bg-gradient-to-r from-joelle-dark/70 to-joelle-dark/30"></div>
+    </div>
+
+    <!-- Contenido Hero -->
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto slide-up">
+      <span class="block text-joelle-nude text-sm md:text-base uppercase tracking-[0.3em] mb-4">Nueva Temporada</span>
+      <h1 class="font-serif text-5xl md:text-7xl text-white mb-6 leading-tight">
+        Pisa fuerte, <br><span class="italic text-joelle-nude">siéntete hermosa.</span>
+      </h1>
+      <p class="text-gray-200 text-lg md:text-xl mb-10 font-light max-w-2xl mx-auto">
+        Descubre la colección exclusiva de Zapatería Joelle. Diseños pensados para la mujer moderna de Mérida,
+        combinando estilo, elegancia y comodidad absoluta.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#coleccion"
+          class="bg-joelle-accent text-white px-8 py-4 rounded-full uppercase tracking-wider text-sm font-medium hover:bg-joelle-rose transition-colors duration-300">
+          Ver Catálogo
+        </a>
+        <a href="#visitanos"
+          class="bg-transparent border border-white text-white px-8 py-4 rounded-full uppercase tracking-wider text-sm font-medium hover:bg-white hover:text-joelle-dark transition-colors duration-300">
+          Nuestra Tienda
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Características (Beneficios) -->
+  <section class="py-12 bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div class="p-4 flex flex-col items-center">
+          <div class="w-16 h-16 bg-joelle-light rounded-full flex items-center justify-center mb-4 text-joelle-accent">
+            <i data-lucide="map-pin" class="w-8 h-8"></i>
+          </div>
+          <h3 class="font-serif text-xl mb-2">Diseño Local</h3>
+          <p class="text-gray-500 text-sm">Ubicados en Francisco de Montejo, conocemos tu estilo.</p>
+        </div>
+        <div class="p-4 flex flex-col items-center">
+          <div class="w-16 h-16 bg-joelle-light rounded-full flex items-center justify-center mb-4 text-joelle-accent">
+            <i data-lucide="heart" class="w-8 h-8"></i>
+          </div>
+          <h3 class="font-serif text-xl mb-2">Comodidad Total</h3>
+          <p class="text-gray-500 text-sm">Materiales seleccionados para que camines sin cansarte.</p>
+        </div>
+        <div class="p-4 flex flex-col items-center">
+          <div class="w-16 h-16 bg-joelle-light rounded-full flex items-center justify-center mb-4 text-joelle-accent">
+            <i data-lucide="star" class="w-8 h-8"></i>
+          </div>
+          <h3 class="font-serif text-xl mb-2">Calidad 4.3★</h3>
+          <p class="text-gray-500 text-sm">Avalados por las reseñas de nuestras hermosas clientas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Colección Destacada -->
+  <section id="coleccion" class="py-24 bg-joelle-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-serif text-4xl md:text-5xl text-joelle-dark mb-4">Colección Destacada</h2>
+        <div class="w-24 h-1 bg-joelle-accent mx-auto mb-6"></div>
+        <p class="text-gray-600 max-w-2xl mx-auto">Seleccionamos cuidadosamente cada par pensando en las diferentes
+          facetas de tu día a día.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Producto 1 -->
+        <div class="product-card group bg-white p-4 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300">
+          <div class="relative overflow-hidden rounded-lg mb-4 aspect-[4/5] bg-gray-100">
+            <img
+              src="https://instagram.fmid3-1.fna.fbcdn.net/v/t51.82787-15/589173926_18519624544066137_320933108464403974_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ig_cache_key=Mzc3ODQ1MTkzOTQxMTM5Mzg0OQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTg4NS5zZHIuQzMifQ%3D%3D&_nc_ohc=4OaTZrIQh4oQ7kNvwFwJV39&_nc_oc=Adqn_Xl3ZKStpzsiJ4Wp5Yel2-G5_eTi48S8W6WnQEEW7gsDX1pnqsOmbMW6tXHkU-Zx-loaLgxzWs1qUr_s2y89&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmid3-1.fna&_nc_gid=YmegWeA8hzx2OdvI6rJHMg&_nc_ss=7a30f&oh=00_AfyUFxozcDWnCSDD-IQ-N5Jg4mqKW0HHwhIvXGhl6fjWuw&oe=69C223A9"
+              alt="Zapatillas Elegantes" class="w-full h-full object-cover">
+          </div>
+          <div class="text-center">
+            <h3 class="font-serif text-lg text-joelle-dark">Zapatillas Classic Nude</h3>
+            <p class="text-gray-500 text-sm mb-2">Tacón 8cm</p>
+            <p class="font-medium text-joelle-accent">$899 MXN</p>
+          </div>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="product-card group bg-white p-4 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300">
+          <div class="relative overflow-hidden rounded-lg mb-4 aspect-[4/5] bg-gray-100">
+            <img
+              src="https://instagram.fmid6-1.fna.fbcdn.net/v/t51.75761-15/487107295_18473469079066137_4835923606645245849_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=MzU5Njk0ODk3ODA2ODkxOTIzMA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTczOC5zZHIuQzMifQ%3D%3D&_nc_ohc=zkjfmFSSoc8Q7kNvwGpnhMq&_nc_oc=Ado96uOh2rY8wrPK5aQAGf_il-9YTwyTN067z271Mpgc3wPahO6mp1yjl0wkY4RRgDX6-8V6ArPJKy1MRib4ZY3J&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmid6-1.fna&_nc_gid=Y0bfg5gV9CQEmmAkMl6w4w&_nc_ss=7a30f&oh=00_AfxqYf4WhPv26MCqd4UuDujfFSgv1KYlhXPYj535RJvHvg&oe=69C248CC"
+              alt="Sandalias de verano" class="w-full h-full object-cover">
+          </div>
+          <div class="text-center">
+            <h3 class="font-serif text-lg text-joelle-dark">Sandalias Montejo Plata</h3>
+            <p class="text-gray-500 text-sm mb-2">Ideales para el calor</p>
+            <p class="font-medium text-joelle-accent">$650 MXN</p>
+          </div>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="product-card group bg-white p-4 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300">
+          <div class="relative overflow-hidden rounded-lg mb-4 aspect-[4/5] bg-gray-100">
+            <img
+              src="https://instagram.fmid6-1.fna.fbcdn.net/v/t51.82787-15/628786203_18533648824066137_2274588246453892905_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=MzgyOTYzNzk1MzIyODk3MTM5Ng%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTkyMC5zZHIuQzMifQ%3D%3D&_nc_ohc=8UQTLpQNezwQ7kNvwGNfyLG&_nc_oc=Adq4SaZ_3AXgbrotAJF1W-UM9GuhvZluxg-kgn_qY73DZaANXDra8ETAgNJGgnLNKGAyoP79M4YgFQQB4bvef-wn&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmid6-1.fna&_nc_gid=-GBDYiiR7CcmSoT0PHvjYA&_nc_ss=7a30f&oh=00_AfyiIBT0zz9NoYg8mFSnd99ldLulS1cdxSYFThHu_eES9w&oe=69C25013"
+              alt="Flats cómodos" class="w-full h-full object-cover">
+          </div>
+          <div class="text-center">
+            <h3 class="font-serif text-lg text-joelle-dark">Flats Esenciales Negros</h3>
+            <p class="text-gray-500 text-sm mb-2">Para el día a día</p>
+            <p class="font-medium text-joelle-accent">$580 MXN</p>
+          </div>
+        </div>
+
+        <!-- Producto 4 -->
+        <div class="product-card group bg-white p-4 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300">
+          <div class="relative overflow-hidden rounded-lg mb-4 aspect-[4/5] bg-gray-100">
+            <img
+              src="https://instagram.fmid3-1.fna.fbcdn.net/v/t51.75761-15/470924423_18456295342066137_1394691375482599925_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MzUyODA3ODE0ODAzODQ4OTE1MA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=ebo-c2PbtV0Q7kNvwELkrTp&_nc_oc=AdphX0_t-vmrF4XS7YXFVWAMIe4C8xSo7piTLx5RGk2ucXy6ypF7zROCOl5V6MACOpHYEcFjzyayeSSSXvLgaIR2&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmid3-1.fna&_nc_gid=oMHNaeyH4qXWqCF1RMFRCw&_nc_ss=7a30f&oh=00_AfxvbrSyhRzZj6lmccdHTIi-U_Xaxmn87KKvW2IMoMsCAQ&oe=69C227B4"
+              alt="Botines elegantes" class="w-full h-full object-cover">
+          </div>
+          <div class="text-center">
+            <h3 class="font-serif text-lg text-joelle-dark">Botines Mérida Otoño</h3>
+            <p class="text-gray-500 text-sm mb-2">Estilo y carácter</p>
+            <p class="font-medium text-joelle-accent">$1,100 MXN</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <button onclick="showToast('El catálogo completo estará disponible pronto.')"
+          class="border-2 border-joelle-dark text-joelle-dark px-8 py-3 rounded-full uppercase tracking-wider text-sm font-medium hover:bg-joelle-dark hover:text-white transition-colors duration-300">
+          Ver todos los modelos
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banner Nosotros -->
+  <section id="nosotros" class="relative py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
+      <div class="md:w-1/2">
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+          <img
+            src="https://instagram.fmid3-1.fna.fbcdn.net/v/t39.30808-6/470681373_18455786110066137_5233811619663984802_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ig_cache_key=MzM3OTQ0MzAzMzg3ODc4MDc0Mg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwNDV4MTMwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=4ThUQY3z5_UQ7kNvwEj9ZUZ&_nc_oc=AdpPYTh7z_q2vREFvje3A30wyKNdeF-0bYsTdXL2fJcXtpkhnzX3kUJ0h_kkvTnrdX_aGd6JnMlPjulcE8W628CD&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmid3-1.fna&_nc_gid=bY3ugi7sawmVgGM_S50DBg&_nc_ss=7a30f&oh=00_Afzos1oLqfmS85349q2-SV2MgF7WkgqCoT8xOxieiuW8_w&oe=69C250FB"
+            alt="Mujer probándose zapatos" class="w-full h-auto">
+          <!-- Decoración -->
+          <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-joelle-nude rounded-full -z-10"></div>
+          <div class="absolute -top-6 -left-6 w-32 h-32 border-2 border-joelle-accent rounded-full -z-10"></div>
+        </div>
+      </div>
+      <div class="md:w-1/2">
+        <span class="text-joelle-accent font-medium tracking-widest text-sm uppercase">Nuestra Esencia</span>
+        <h2 class="font-serif text-4xl md:text-5xl text-joelle-dark mt-2 mb-6">Creamos zapatos para mujeres imparables.
+        </h2>
+        <p class="text-gray-600 mb-6 leading-relaxed">
+          En <strong>Zapatería Joelle</strong>, creemos que un buen par de zapatos puede cambiar tu día entero. Nacimos
+          en el corazón de Mérida con un propósito claro: ofrecer a la mujer yucateca opciones que resalten su belleza
+          sin sacrificar la comodidad que necesita para su rutina.
+        </p>
+        <p class="text-gray-600 mb-8 leading-relaxed">
+          Sabemos que cada paso cuenta. Por eso, seleccionamos tendencias y materiales pensando en ti. Bienvenida a tu
+          nuevo lugar favorito.
+        </p>
+
+        <!-- Testimonial simulado (basado en el rating de 4.3) -->
+        <div class="bg-joelle-light p-6 rounded-xl border-l-4 border-joelle-accent italic text-gray-700">
+          "Me gustó mucho la variedad de zapatos que tienen, manejan desde zapato cerrado plano, sandalias, zapatos
+          altos y zapatos bajos más cómodos."
+          <div class="flex items-center gap-1 mt-3 text-yellow-400">
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star-half" class="w-4 h-4 fill-current"></i>
+            <span class="text-xs text-gray-500 ml-2 not-italic">4.3 estrellas en Google</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Info y Contacto (Visítanos) -->
+  <section id="visitanos" class="py-24 bg-joelle-dark text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-serif text-4xl md:text-5xl mb-4">Visítanos</h2>
+        <div class="w-24 h-1 bg-joelle-accent mx-auto mb-6"></div>
+        <p class="text-gray-300 max-w-2xl mx-auto">Te esperamos en nuestra sucursal. Ven, pruébate tus favoritos y
+          encuentra tu talla ideal.</p>
+      </div>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-white/5 rounded-2xl p-8 md:p-12 border border-white/10 backdrop-blur-sm">
+        <!-- Horarios y Datos -->
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-xl font-serif text-joelle-nude mb-4 flex items-center gap-3">
+              <i data-lucide="map-pin" class="w-6 h-6"></i> Ubicación
+            </h3>
+            <p class="text-gray-300 font-light leading-relaxed">
+              C. 41 334-42 y 48, Francisco de Montejo III<br>
+              97203 Mérida, Yucatán.
+            </p>
+            <a href="https://maps.google.com/?q=Zapatería+Joelle+Mérida" target="_blank"
+              class="inline-block mt-3 text-sm text-joelle-accent hover:text-white transition-colors underline underline-offset-4">
+              Abrir en Google Maps
+            </a>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-serif text-joelle-nude mb-4 flex items-center gap-3">
+              <i data-lucide="clock" class="w-6 h-6"></i> Horarios
+            </h3>
+            <ul class="text-gray-300 font-light space-y-2">
+              <li class="flex justify-between border-b border-white/10 pb-2">
+                <span>Lunes a Viernes</span>
+                <span>11:00 a.m. - 8:00 p.m.</span>
+              </li>
+              <li class="flex justify-between border-b border-white/10 pb-2">
+                <span>Sábados</span>
+                <span>10:00 a.m. - 4:00 p.m.</span>
+              </li>
+              <li class="flex justify-between text-gray-500 pt-1">
+                <span>Domingos</span>
+                <span>Cerrado</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-serif text-joelle-nude mb-4 flex items-center gap-3">
+              <i data-lucide="phone" class="w-6 h-6"></i> Contacto
+            </h3>
+            <p class="text-gray-300 font-light text-2xl">
+              999 450 7377
+            </p>
+            <a href="https://wa.me/529994507377" target="_blank"
+              class="inline-flex items-center gap-2 mt-4 bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition-colors">
+              <i data-lucide="message-circle" class="w-5 h-5"></i>
+              Enviar WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Imagen representativa de tienda / mapa -->
+        <div class="relative h-full min-h-[300px] rounded-xl overflow-hidden shadow-lg border border-white/10 group">
+          <!-- Simulamos un mapa con una imagen hermosa por ahora -->
+          <img
+            src="https://instagram.fmid6-1.fna.fbcdn.net/v/t39.30808-6/470227654_18455740024066137_8759415783922968908_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=MzM1Nzc3MTc2MTIxNzEyNTc3NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwNTB4MTMxMi5zZHIuQzMifQ%3D%3D&_nc_ohc=4bboKJkESngQ7kNvwGuiLYz&_nc_oc=AdoEoRS5RI0RrtOMHbopyZxk1JnZWjjmPl4Lvv3RoDkWvxjF-9sVAZh0BHpD_EihWlQEqOV09sUDRTXKVupPIRR1&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmid6-1.fna&_nc_gid=zKLn3Kl1sZaTBPSMdNvqDw&_nc_ss=7a30f&oh=00_Afy_CDbMWzw8STLUHT6pDlxg0j82e7RIVfrLOkzopRpbvA&oe=69C24D67"
+            alt="Tienda física"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-joelle-dark to-transparent opacity-80"></div>
+          <div class="absolute bottom-6 left-6 right-6 text-center">
+            <p class="text-white font-serif text-xl mb-2">Tu Zapatería de Confianza</p>
+            <p class="text-sm text-gray-300">Descubre la experiencia Joelle en persona.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-joelle-dark border-t border-white/10 pt-16 pb-8 text-center text-gray-400">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
+      <a href="#" class="font-serif text-3xl font-bold tracking-wider text-white mb-6">
+        JOELLE<span class="text-joelle-accent text-4xl">.</span>
+      </a>
+      <div class="flex gap-6 mb-8">
+        <a href="https://www.instagram.com/joelle_mx?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          class="hover:text-joelle-accent transition-colors"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+        <a href="https://www.facebook.com/calzadojoelle" class="hover:text-joelle-accent transition-colors"><i
+            data-lucide="facebook" class="w-6 h-6"></i></a>
+      </div>
+      <p class="text-sm mb-2">© 2026 Rodrigo D. Cañas Pérez. Todos los derechos reservados.</p>
+      <p class="text-xs">Diseñado exclusivamente para resaltar la belleza de la mujer.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts de interactividad -->
+  <script>
+    // Inicializar iconos de Lucide
+    lucide.createIcons();
+
+    // Lógica del Menú Móvil
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // Sistema de Notificaciones (Toast) - Evita usar "alert()"
+    let toastTimeout;
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+
+      toastMsg.textContent = message;
+
+      // Mostrar
+      toast.classList.remove('translate-x-full', 'opacity-0');
+
+      // Ocultar después de 3 segundos
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('translate-x-full', 'opacity-0');
+      }, 3000);
+    }
+
+
+    // Efecto de Navbar al hacer Scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-md');
+        navbar.classList.remove('bg-white/90');
+        navbar.classList.add('bg-white');
+      } else {
+        navbar.classList.remove('shadow-md');
+        navbar.classList.remove('bg-white');
+        navbar.classList.add('bg-white/90');
+      }
+    });
+  </script>
+</body>
+
+</html>
