@@ -25,542 +25,529 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rodrigo DCP | Portafolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
-            'sans': ['"Plus Jakarta Sans"', 'sans-serif'],
+            'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
           },
           colors: {
-            'portfolio-bg': '#0a0a0a',
-            'portfolio-card': '#161616',
-            'portfolio-accent': '#6366f1'
+            'apple-bg': 'var(--apple-bg)',
+            'apple-text': 'var(--apple-text)',
+            'apple-gray': '#f5f5f7',
+            'apple-card': 'var(--apple-card)',
+            'apple-accent': '#0071e3',
+            'portfolio-accent': '#0071e3'
+          },
+          borderRadius: {
+            'apple': '22px',
           }
         }
       }
     }
+
+    // Bloqueante para evitar flash de color incorrecto
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
   </script>
   <style>
+    :root {
+      --apple-blur: blur(20px) saturate(180%);
+      --apple-bg: #f5f5f7;
+      --apple-text: #1d1d1f;
+      --apple-card: rgba(255, 255, 255, 0.7);
+      --apple-border: rgba(0, 0, 0, 0.1);
+    }
+
+    .dark {
+      --apple-bg: #0e0e0e;
+      --apple-text: #f5f5f7;
+      --apple-card: rgba(28, 28, 30, 0.7);
+      --apple-border: rgba(255, 255, 255, 0.1);
+    }
+
     body {
-      background-color: #0a0a0a;
-      color: #fafafa;
+      background-color: var(--apple-bg);
+      color: var(--apple-text);
+      letter-spacing: -0.01em;
+      transition: background-color 0.5s ease, color 0.5s ease;
     }
 
     .glass-card {
-      background: rgba(22, 22, 22, 0.9);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: var(--apple-card);
+      backdrop-filter: var(--apple-blur);
+      -webkit-backdrop-filter: var(--apple-blur);
+      border: 1px solid var(--apple-border);
+      border-radius: 22px;
     }
 
+
+
     .gradient-text {
-      background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+      background: linear-gradient(180deg, var(--apple-text) 0%, #a1a1a6 100%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .animate-float {
-      animation: float 6s ease-in-out infinite;
+    .nav-link {
+      color: var(--apple-text);
+      opacity: 0.6;
+      position: relative;
+      transition: all 0.3s ease;
     }
 
-    @keyframes float {
+    .nav-link:hover {
+      opacity: 1;
+    }
 
-      0%,
-      100% {
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #0071e3;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
         transform: translateY(0);
       }
+    }
 
-      50% {
-        transform: translateY(-10px);
-      }
+    .animate-apple-in {
+      animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      animation: marquee 30s linear infinite;
     }
   </style>
   <script type="text/javascript">
-      (function (c, l, a, r, i, t, y) {
-        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-        t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-      })(window, document, "clarity", "script", "vylw6vn43c");
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "vylw6vn43c");
   </script>
 </head>
 
-<body class="font-sans antialiased">
+<body class="font-sans antialiased bg-apple-bg overflow-x-hidden">
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KM3HQ2F7" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <!-- Header / Navigation -->
-  <header class="fixed w-full z-50 py-6 px-8 flex justify-between items-center transition-all" id="header">
-    <div class="text-xl font-extrabold tracking-tight">RODRIGO<span class="text-portfolio-accent">DCP</span></div>
-    <nav class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-widest text-gray-400">
-      <a href="#" class="hover:text-white transition-colors">Inicio</a>
-      <a href="#planes" class="hover:text-white transition-colors">Planes</a>
-      <a href="#proyectos" class="hover:text-white transition-colors">Proyectos</a>
-      <a href="https://rodrigodcp.github.io/contencion/RodrigoDCP.html" class="hover:text-white transition-colors">Sobre
-        Mí</a>
+
+  <!-- Header / Top Bar (macOS Style) -->
+  <header class="fixed w-full top-0 z-[60] py-4 px-8 flex justify-between items-center transition-all duration-500"
+    id="header">
+    <div class="text-xl font-bold tracking-tight text-apple-text flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-apple-accent"></span>
+      RODRIGO<span class="opacity-50 font-medium">DCP</span>
+    </div>
+
+    <nav class="hidden md:flex items-center space-x-10 text-[13px] font-medium tracking-tight">
+      <a href="#" class="nav-link">Inicio</a>
+      <a href="#planes" class="nav-link">Planes</a>
+      <a href="#proyectos" class="nav-link">Proyectos</a>
+      <a href="https://rodrigodcp.github.io/contencion/RodrigoDCP.html" class="nav-link">Sobre Mí</a>
     </nav>
-    <button class="md:hidden text-gray-400 hover:text-white transition-colors" id="menu-toggle">
-      <i data-lucide="menu" class="w-6 h-6"></i>
-    </button>
+
+    <div class="flex items-center gap-4">
+      <button id="theme-toggle"
+        class="p-2 rounded-full hover:bg-white/10 dark:hover:bg-white/5 transition-colors text-apple-text">
+        <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
+        <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+      </button>
+      <button class="opacity-60 hover:opacity-100 transition-opacity md:hidden" id="menu-toggle">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+      <a href="https://wa.me/529934035934" target="_blank"
+        class="hidden md:flex items-center gap-2 bg-white text-black px-4 py-1.5 rounded-full text-xs font-bold hover:bg-gray-200 transition-all">
+        Contactar
+      </a>
+    </div>
   </header>
+
+
 
   <main>
     <!-- Hero Section -->
-    <section class="min-h-screen flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
-      <!-- Background Blobs -->
-      <div class="absolute top-1/4 -left-20 w-72 h-72 bg-portfolio-accent/20 rounded-full blur-[120px]"></div>
-      <div class="absolute bottom-1/4 -right-20 w-72 h-72 bg-purple-500/10 rounded-full blur-[120px]"></div>
-
-      <div class="relative z-10">
-        <h1 class="text-6xl md:text-8xl font-black mb-6 tracking-tighter">
-          RODRIGO <span class="gradient-text">DCP</span>
+    <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 relative">
+      <div class="max-w-4xl mx-auto animate-apple-in" style="animation-delay: 0.2s">
+        <h1 class="text-5xl md:text-8xl font-extrabold tracking-tight mb-8 leading-[1.1]">
+          RODRIGO<span class="gradient-text"> DCP</span>
         </h1>
-        <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12">
-          Explora mis planes y proyectos de desarrollo web.
+        <p class="opacity-70 text-lg md:text-2xl max-w-2xl mx-auto mb-10 font-medium leading-relaxed">
+          Capturo la esencia de tu negocio <br class="hidden md:block"> y la plasmo en un mundo digital.
         </p>
-        <div class="flex flex-wrap justify-center gap-4">
+        <div class="flex flex-col sm:flex-row justify-center gap-5 mt-4">
           <a href="#proyectos"
-            class="bg-white/5 hover:bg-white/10 text-white font-bold py-4 px-8 rounded-full transition-all border border-white/10">
-            Ver Proyectos
+            class="bg-apple-text text-apple-bg font-bold py-4 px-10 rounded-full hover:opacity-90 transition-all transform hover:scale-[1.02] active:scale-[0.98]">
+            Ver mis Proyectos
           </a>
           <a href="#planes"
-            class="bg-portfolio-accent hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full transition-all hover:scale-105 shadow-lg shadow-portfolio-accent/20">
-            Ver Planes
+            class="bg-transparent border border-apple-border text-apple-text font-bold py-4 px-10 rounded-full hover:bg-apple-text/5 transition-all transform hover:scale-[1.02] active:scale-[0.98]">
+            Explorar Planes
           </a>
         </div>
       </div>
 
-      <div class="absolute bottom-10 animate-bounce">
-        <i data-lucide="chevron-down" class="text-gray-600"></i>
+      <div class="mt-20 w-full max-w-5xl mx-auto overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] [webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+        <div class="flex animate-marquee whitespace-nowrap gap-24 items-center py-8">
+          <!-- First Set -->
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/250px-HTML5_logo_and_wordmark.svg.png" 
+               alt="HTML5" class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
+          <img src="https://humancoders-formations.s3.eu-west-1.amazonaws.com/uploads/course/logo/74/formation-css-avance.png" 
+               alt="CSS3" class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
+          <img src="https://d3rtegloudc34g.cloudfront.net/_next/image/?url=https%3A%2F%2Fik.imagekit.io%2Fd9mvewbju%2FCourse%2Fjavascript-header-image_jYdPec3TG8&w=750&q=75" 
+               alt="JavaScript" class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
+          <img src="https://cdn.prod.website-files.com/6088303c28a7c75678aa21d8/65c21f8033fbf3b0de137271_Hostinger_Vertical_Purple.png" 
+               alt="Hostinger" class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
+          <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/collections/github-pages-examples/github-pages-examples.png" 
+               alt="GitHub Pages" class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
+          
+          <!-- Duplicate for infinite scroll -->
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/250px-HTML5_logo_and_wordmark.svg.png" 
+               alt="HTML5" class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
+          <img src="https://humancoders-formations.s3.eu-west-1.amazonaws.com/uploads/course/logo/74/formation-css-avance.png" 
+               alt="CSS3" class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
+          <img src="https://d3rtegloudc34g.cloudfront.net/_next/image/?url=https%3A%2F%2Fik.imagekit.io%2Fd9mvewbju%2FCourse%2Fjavascript-header-image_jYdPec3TG8&w=750&q=75" 
+               alt="JavaScript" class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
+          <img src="https://cdn.prod.website-files.com/6088303c28a7c75678aa21d8/65c21f8033fbf3b0de137271_Hostinger_Vertical_Purple.png" 
+               alt="Hostinger" class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
+          <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/collections/github-pages-examples/github-pages-examples.png" 
+               alt="GitHub Pages" class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
+        </div>
+      </div>
+
+      <!-- Scroll Indicator (Restored) -->
+      <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 animate-bounce opacity-40">
+        <span class="inline-block text-[10px] font-bold uppercase tracking-[0.2em] -translate-x-[0.1em]">Desliza</span>
+        <i data-lucide="chevron-down" class="w-5 h-5"></i>
       </div>
     </section>
 
     <!-- Pricing Plans Section -->
-    <section id="planes" class="py-24 px-8 max-w-7xl mx-auto border-t border-zinc-900/50">
-      <div class="mb-16 text-center">
-        <h2 class="text-4xl md:text-5xl font-black mb-4">Planes de <span class="gradient-text">Servicio</span></h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">Selecciona el plan que mejor se adapte a las necesidades de tu
-          negocio y mantén tu presencia web impecable.</p>
-        <div class="w-20 h-1.5 bg-portfolio-accent rounded-full mx-auto mt-6"></div>
+    <section id="planes" class="py-32 px-8 max-w-7xl mx-auto">
+      <div class="mb-20 text-center animate-apple-in">
+        <h2 class="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">Elige tu <span
+            class="gradient-text">Plan</span></h2>
+        <p class="opacity-70 max-w-xl mx-auto text-lg font-medium">Soluciones a medida para mantener tu presencia
+          digital impecable y en constante evolución.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Plan Básico -->
-        <div
-          class="glass-card rounded-3xl p-8 flex flex-col h-full border-portfolio-accent/20 hover:border-portfolio-accent/50 transition-all duration-500">
+        <div class="glass-card p-10 flex flex-col h-full hover:scale-[1.02] transition-all duration-500">
           <div class="mb-8">
-            <h3 class="text-2xl font-bold mb-2">Plan Básico</h3>
+            <h3 class="text-xl font-bold mb-4">Plan Básico</h3>
             <div class="flex items-baseline gap-1">
-              <span class="text-4xl font-black text-portfolio-accent">$150</span>
-              <span class="text-gray-500 text-sm">/ mes</span>
+              <span class="text-5xl font-extrabold">$150</span>
+              <span class="opacity-50 text-sm font-medium">/ mes</span>
             </div>
           </div>
-          <p class="text-gray-400 text-sm mb-8">Pensado para negocios que solo quieren que la página <strong>siga
-              funcionando</strong>.</p>
-          <ul class="space-y-4 mb-10 flex-grow text-sm">
-            <li class="flex items-start gap-3">
-              <i data-lucide="check-circle-2" class="w-5 h-5 text-portfolio-accent flex-shrink-0 mt-0.5"></i>
-              <span>Revisiones básicas: 1</span>
+          <p class="text-gray-400 text-sm mb-10 leading-relaxed">Esencial para mantener tu sitio web en línea y
+            funcionando sin preocupaciones.</p>
+          <ul class="space-y-5 mb-12 flex-grow">
+            <li class="flex items-center gap-3 text-sm font-medium">
+              <i data-lucide="check" class="w-5 h-5 text-apple-accent"></i>
+              <span>1 Revisión mensual</span>
             </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="activity" class="w-5 h-5 text-portfolio-accent flex-shrink-0 mt-0.5"></i>
-              <span>Funcionamiento activo del sitio</span>
+            <li class="flex items-center gap-3 text-sm font-medium">
+              <i data-lucide="check" class="w-5 h-5 text-apple-accent"></i>
+              <span>Mantenimiento activo</span>
             </li>
-            <li class="flex items-start gap-3 text-white">
-              <i data-lucide="shield-check" class="w-5 h-5 text-portfolio-accent flex-shrink-0 mt-0.5"></i>
-              <span>Verificación de funcionamiento del sitio</span>
+            <li class="flex items-center gap-3 text-sm font-medium">
+              <i data-lucide="check" class="w-5 h-5 text-apple-accent"></i>
+              <span>Verificación de seguridad</span>
             </li>
           </ul>
-          <div class="flex flex-col sm:flex-row gap-3">
+          <div class="space-y-3">
             <a href="https://wa.me/529934035934" target="_blank"
-              class="flex-1 py-4 px-6 rounded-2xl bg-white/5 hover:bg-portfolio-accent text-center font-bold transition-all border border-white/10 flex items-center justify-center gap-2">
-              <i data-lucide="message-circle" class="w-5 h-5"></i> Whatsapp
+              class="block w-full py-4 rounded-2xl bg-white text-black text-center font-bold hover:bg-gray-200 transition-all text-sm">
+              Seleccionar Plan
             </a>
             <a href="planes/basico.pdf" target="_blank"
-              class="flex-1 py-4 px-6 rounded-2xl bg-white/5 hover:bg-white/10 text-center font-bold transition-all border border-white/10 flex items-center justify-center gap-2">
-              <i data-lucide="file-text" class="w-5 h-5"></i> Detalles
+              class="block w-full py-4 rounded-2xl bg-transparent border border-apple-border text-center font-bold hover:bg-apple-text/5 transition-all text-sm">
+              Ver Detalles
             </a>
           </div>
         </div>
 
         <!-- Plan Estándar -->
-        <div class="relative group">
+        <div
+          class="glass-card p-10 flex flex-col h-full relative overflow-hidden ring-2 ring-apple-accent/30 scale-105 z-10">
           <div
-            class="absolute -inset-1 bg-gradient-to-r from-orange-500 to-purple-600 rounded-[2rem] blur opacity-25 group-hover:opacity-40 transition duration-1000">
+            class="absolute top-0 right-0 bg-apple-accent text-white px-5 py-1.5 rounded-bl-2xl text-[10px] font-black uppercase tracking-widest">
+            Recomendado
           </div>
-          <div class="relative glass-card rounded-3xl p-8 flex flex-col h-full border-orange-500/30">
-            <div
-              class="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-[10px] font-black uppercase tracking-widest py-1 px-4 rounded-full">
-              Popular</div>
-            <div class="mb-8">
-              <h3 class="text-2xl font-bold mb-2 text-white">Plan Estándar</h3>
-              <div class="flex items-baseline gap-1">
-                <span class="text-4xl font-black text-orange-500">$350</span>
-                <span class="text-gray-500 text-sm">/ mes</span>
-              </div>
+          <div class="mb-8">
+            <h3 class="text-xl font-bold mb-4">Plan Estándar</h3>
+            <div class="flex items-baseline gap-1">
+              <span class="text-5xl font-extrabold">$350</span>
+              <span class="opacity-50 text-sm font-medium">/ mes</span>
             </div>
-            <p class="text-gray-400 text-sm mb-8">Para negocios que <strong>actualizan su contenido
-                regularmente</strong>.</p>
-            <ul class="space-y-4 mb-10 flex-grow text-sm">
-              <li class="flex items-start gap-3">
-                <i data-lucide="check-circle-2" class="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5"></i>
-                <span class="font-semibold text-white">Todo lo del Básico +</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <i data-lucide="edit-3" class="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5"></i>
-                <span>Revisiones estándar: 2</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <i data-lucide="plus-circle" class="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5"></i>
-                <span>Añadir hasta 2 secciones nuevas por mes</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <i data-lucide="activity" class="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5"></i>
-                <span>Funcionamiento activo del sitio</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <i data-lucide="shield-check" class="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5"></i>
-                <span>Verificación de funcionamiento del sitio</span>
-              </li>
-            </ul>
-            <div class="flex flex-col sm:flex-row gap-3">
-              <a href="https://wa.me/529934035934" target="_blank"
-                class="flex-1 py-4 px-6 rounded-2xl bg-orange-500 hover:bg-orange-600 text-center font-bold transition-all shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2">
-                <i data-lucide="message-circle" class="w-5 h-5"></i> Whatsapp
-              </a>
-              <a href="planes/estandar.pdf" target="_blank"
-                class="flex-1 py-4 px-6 rounded-2xl bg-white/10 hover:bg-white/20 text-center font-bold transition-all border border-white/10 flex items-center justify-center gap-2">
-                <i data-lucide="file-text" class="w-5 h-5"></i> Detalles
-              </a>
-            </div>
+          </div>
+          <p class="opacity-70 text-sm mb-10 leading-relaxed">Perfecto para negocios que crecen y necesitan
+            actualizaciones recurrentes.</p>
+          <ul class="space-y-5 mb-12 flex-grow">
+            <li class="flex items-center gap-3 text-sm font-medium">
+              <i data-lucide="sparkles" class="w-5 h-5 text-apple-accent"></i>
+              <span>Todo lo del Básico +</span>
+            </li>
+            <li class="flex items-center gap-3 text-sm font-medium">
+              <i data-lucide="check" class="w-5 h-5 text-apple-accent"></i>
+              <span>2 Revisiones mensuales</span>
+            </li>
+            <li class="flex items-center gap-3 text-sm font-medium">
+              <i data-lucide="check" class="w-5 h-5 text-apple-accent"></i>
+              <span>2 Secciones nuevas / mes</span>
+            </li>
+          </ul>
+          <div class="space-y-3">
+            <a href="https://wa.me/529934035934" target="_blank"
+              class="block w-full py-4 rounded-2xl bg-apple-accent text-white text-center font-bold hover:bg-blue-600 transition-all shadow-lg shadow-apple-accent/20 text-sm">
+              Seleccionar Plan
+            </a>
+            <a href="planes/estandar.pdf" target="_blank"
+              class="block w-full py-4 rounded-2xl bg-transparent border border-apple-border text-center font-bold hover:bg-apple-text/5 transition-all text-sm">
+              Ver Detalles
+            </a>
           </div>
         </div>
 
         <!-- Plan Negocio -->
-        <div
-          class="glass-card rounded-3xl p-8 flex flex-col h-full border-cyan-400/20 hover:border-cyan-400/50 transition-all duration-500">
+        <div class="glass-card p-10 flex flex-col h-full hover:scale-[1.02] transition-all duration-500">
           <div class="mb-8">
-            <h3 class="text-2xl font-bold mb-2">Plan Negocio</h3>
+            <h3 class="text-xl font-bold mb-4">Plan Negocio</h3>
             <div class="flex items-baseline gap-1">
-              <span class="text-4xl font-black text-cyan-400">$500</span>
-              <span class="text-gray-500 text-sm">/ mes</span>
+              <span class="text-5xl font-extrabold">$500</span>
+              <span class="opacity-50 text-sm font-medium">/ mes</span>
             </div>
           </div>
-          <p class="text-gray-400 text-sm mb-8">Para negocios que <strong>usan su web como herramienta activa</strong>.
-          </p>
-          <ul class="space-y-4 mb-10 flex-grow text-sm">
-            <li class="flex items-start gap-3">
-              <i data-lucide="zap" class="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5"></i>
-              <span class="font-semibold text-white">Revisiones ilimitadas (Básicas, Estándar, Secciones nuevas,
-                Rediseño)</span>
+          <p class="opacity-70 text-sm mb-10 leading-relaxed">Tu sitio web como una herramienta de alto rendimiento
+            sin límites.</p>
+          <ul class="space-y-5 mb-12 flex-grow">
+            <li class="flex items-center gap-3 text-sm font-medium">
+              <i data-lucide="check" class="w-5 h-5 text-apple-accent"></i>
+              <span>Revisiones ilimitadas</span>
             </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="activity" class="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5"></i>
-              <span>Funcionamiento activo del sitio</span>
+            <li class="flex items-center gap-3 text-sm font-medium">
+              <i data-lucide="check" class="w-5 h-5 text-apple-accent"></i>
+              <span>Soporte prioritario 24/7</span>
             </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="shield-check" class="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5"></i>
-              <span>Verificación de funcionamiento del sitio</span>
-            </li>
-            <li class="flex items-start gap-3 text-white">
-              <i data-lucide="star" class="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5"></i>
-              <span>Soporte prioritario</span>
+            <li class="flex items-center gap-3 text-sm font-medium">
+              <i data-lucide="check" class="w-5 h-5 text-apple-accent"></i>
+              <span>Rediseño continuo</span>
             </li>
           </ul>
-          <div class="flex flex-col sm:flex-row gap-3">
+          <div class="space-y-3">
             <a href="https://wa.me/529934035934" target="_blank"
-              class="flex-1 py-4 px-6 rounded-2xl bg-white/5 hover:bg-cyan-400 text-center font-bold transition-all border border-white/10 flex items-center justify-center gap-2">
-              <i data-lucide="message-circle" class="w-5 h-5"></i> Whatsapp
+              class="block w-full py-4 rounded-2xl bg-white text-black text-center font-bold hover:bg-gray-200 transition-all text-sm">
+              Seleccionar Plan
             </a>
             <a href="planes/premium.pdf" target="_blank"
-              class="flex-1 py-4 px-6 rounded-2xl bg-white/5 hover:bg-white/10 text-center font-bold transition-all border border-white/10 flex items-center justify-center gap-2">
-              <i data-lucide="file-text" class="w-5 h-5"></i> Detalles
+              class="block w-full py-4 rounded-2xl bg-transparent border border-apple-border text-center font-bold hover:bg-apple-text/5 transition-all text-sm">
+              Ver Detalles
             </a>
           </div>
         </div>
       </div>
 
-      <!-- New Services Row -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+      <!-- One-time Services -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 animate-apple-in" style="animation-delay: 0.4s">
         <!-- Landing Page -->
-        <div
-          class="glass-card rounded-3xl p-8 flex flex-col h-full border-indigo-500/20 hover:border-indigo-500/50 transition-all duration-500">
-          <div class="mb-8">
-            <h3 class="text-2xl font-bold mb-2">Landing Page</h3>
-            <div class="flex items-baseline gap-1">
-              <span class="text-4xl font-black text-indigo-400">$2,200</span>
-              <span class="text-gray-500 text-sm">MXN — pago único</span>
-            </div>
-          </div>
-          <p class="text-gray-400 text-sm mb-8">Ideal para negocios que necesitan presencia en internet rápida y
-            profesional.</p>
-          <ul class="space-y-4 mb-10 flex-grow text-sm">
-            <li class="flex items-start gap-3">
-              <i data-lucide="smartphone" class="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5"></i>
-              <span>Diseño moderno y adaptable a celular</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="layout" class="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5"></i>
-              <span>1 página optimizada para mostrar tu negocio</span>
-            </li>
-            <li class="flex items-start gap-3 text-gray-400">
-              <i data-lucide="check" class="w-4 h-4 mt-1 flex-shrink-0"></i>
-              <span>Secciones estratégicas (inicio, servicios, contacto)</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="message-circle" class="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5"></i>
-              <span>Botón de WhatsApp o contacto directo</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="zap" class="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5"></i>
-              <span>Optimización básica</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="globe" class="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5"></i>
-              <span>Publicación en internet</span>
-            </li>
-            <!-- Bonus -->
-            <li class="mt-6 p-4 rounded-xl bg-indigo-500/10 border border-indigo-500/20">
-              <div class="flex items-center gap-2 mb-1">
-                <i data-lucide="sparkles" class="w-4 h-4 text-indigo-400"></i>
-                <span class="font-bold text-white uppercase text-[10px] tracking-widest">Bonus incluido</span>
-              </div>
-              <p class="text-gray-400">Acceso al <span class="text-white font-semibold italic">plan premium durante el
-                  primer mes</span> sin costo.</p>
-            </li>
-          </ul>
-
-          <div class="mb-8 p-4 rounded-xl bg-zinc-900/50 border border-white/5 text-[12px] text-gray-400 italic">
-            <p><strong>Importante:</strong> El sitio se publica con una dirección web gratuita. Si deseas una dirección
-              personalizada como <code class="text-indigo-400">www.tunegocio.com</code>, puedes contratar el servicio de
-              dominio personalizado.</p>
-          </div>
-
-          <div class="flex flex-col sm:flex-row gap-4 items-center justify-between pt-4 border-t border-white/5">
-            <div class="flex items-center gap-2">
-              <i data-lucide="clock" class="w-4 h-4 text-gray-500"></i>
-              <span class="text-xs text-gray-500 font-semibold uppercase">Entrega: 2–5 días</span>
+        <div class="glass-card p-10 flex flex-col">
+          <h3 class="text-2xl font-bold mb-2">Landing Page</h3>
+          <p class="text-3xl font-extrabold text-apple-accent mb-6">$2,200 <span
+              class="text-xs opacity-50 font-medium tracking-normal">MXN</span></p>
+          <p class="opacity-70 text-sm mb-8">La forma más rápida y elegante de lanzar tu producto al mercado con un
+            diseño que convierte.</p>
+          <div class="flex items-center justify-between pt-6 border-t border-apple-border">
+            <div class="flex items-center gap-2 text-xs opacity-50 font-bold uppercase tracking-widest">
+              <i data-lucide="clock" class="w-4 h-4"></i> 2-5 Días
             </div>
             <a href="https://wa.me/529934035934" target="_blank"
-              class="w-full sm:w-auto py-3 px-8 rounded-2xl bg-indigo-500 hover:bg-indigo-600 text-center font-bold transition-all shadow-lg shadow-indigo-500/20 flex items-center justify-center gap-2">
-              <i data-lucide="message-circle" class="w-5 h-5"></i> WhatsApp
+              class="text-apple-accent font-bold text-sm hover:underline flex items-center gap-1">
+              Me interesa <i data-lucide="chevron-right" class="w-4 h-4"></i>
             </a>
           </div>
         </div>
 
         <!-- Dominio -->
-        <div
-          class="glass-card rounded-3xl p-8 flex flex-col h-full border-purple-500/20 hover:border-purple-500/50 transition-all duration-500">
-          <div class="mb-8">
-            <h3 class="text-2xl font-bold mb-2">Dominio</h3>
-            <div class="flex items-baseline gap-1">
-              <span class="text-4xl font-black text-purple-400">$800-1000</span>
-              <span class="text-gray-500 text-sm">MXN — primer año</span>
-            </div>
-            <p class="text-xs text-gray-500 mt-1 italic">(puede variar según el dominio)</p>
-          </div>
-          <p class="text-gray-400 text-sm mb-6">Haz que tu negocio tenga una dirección profesional en internet.</p>
-
-          <div class="mb-8 p-4 rounded-xl bg-purple-500/5 border border-purple-500/10 text-sm">
-            <p class="text-gray-300 mb-2">En lugar de una dirección difícil como:</p>
-            <code class="block bg-black/40 p-2 rounded text-gray-500 text-xs mb-3">rodrigodcp.github.io/negocio</code>
-            <p class="text-gray-300 mb-2">Tu sitio podrá verse así:</p>
-            <code
-              class="block bg-black/40 p-2 rounded text-purple-400 text-xs font-bold font-mono">www.tunegocio.com</code>
-          </div>
-
-          <ul class="space-y-4 mb-10 flex-grow text-sm">
-            <li class="flex items-start gap-3">
-              <i data-lucide="key" class="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"></i>
-              <span>Registro del dominio a tu nombre</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="settings" class="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"></i>
-              <span>Configuración completa y conexión web</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="shield-check" class="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"></i>
-              <span>Certificado de seguridad HTTPS</span>
-            </li>
-            <li class="mt-6 p-4 rounded-xl bg-purple-500/10 border border-purple-500/20 text-xs text-gray-300">
-              <p><strong>Renovación anual:</strong> $800-1000 MXN (puede variar según el dominio)</p>
-            </li>
-          </ul>
-
-          <div class="mb-8 p-4 rounded-xl bg-zinc-900/50 border border-white/5 text-[12px] text-gray-400 italic">
-            <p><strong>Importante:</strong> El dominio es propiedad del cliente y puede renovarse cada año para mantener
-              activa la página.</p>
-          </div>
-
-          <div class="flex flex-col sm:flex-row gap-4 items-center justify-between pt-4 border-t border-white/5">
-            <div class="flex items-center gap-2">
-              <i data-lucide="clock" class="w-4 h-4 text-gray-500"></i>
-              <span class="text-xs text-gray-500 font-semibold uppercase">Configuración: 1–2 días</span>
+        <div class="glass-card p-10 flex flex-col">
+          <h3 class="text-2xl font-bold mb-2">Dominio</h3>
+          <p class="text-3xl font-extrabold text-apple-accent mb-6">$800 <span
+              class="text-xs opacity-50 font-medium tracking-normal">MXN / año</span></p>
+          <p class="opacity-70 text-sm mb-8">Tu propia dirección profesional en internet con configuración completa y
+            certificado SSL.</p>
+          <div class="flex items-center justify-between pt-6 border-t border-apple-border">
+            <div class="flex items-center gap-2 text-xs opacity-50 font-bold uppercase tracking-widest">
+              <i data-lucide="globe" class="w-4 h-4"></i> Configuración Pro
             </div>
             <a href="https://wa.me/529934035934" target="_blank"
-              class="w-full sm:w-auto py-3 px-8 rounded-2xl bg-purple-500 hover:bg-purple-600 text-center font-bold transition-all shadow-lg shadow-purple-500/20 flex items-center justify-center gap-2">
-              <i data-lucide="message-circle" class="w-5 h-5"></i> WhatsApp
+              class="text-apple-accent font-bold text-sm hover:underline flex items-center gap-1">
+              Configurar <i data-lucide="chevron-right" class="w-4 h-4"></i>
             </a>
           </div>
         </div>
       </div>
 
       <!-- Importante Footer -->
-      <div class="mt-16 p-8 rounded-2xl bg-zinc-900/30 border border-white/5 text-center">
-        <div class="mb-4 inline-block p-2 rounded-full bg-portfolio-accent/10 border border-portfolio-accent/20">
-          <i data-lucide="alert-circle" class="w-6 h-6 text-portfolio-accent"></i>
-        </div>
-        <h4 class="text-white font-bold mb-2 uppercase tracking-widest text-xs">Aviso importante</h4>
-        <p class="text-gray-400 text-sm max-w-3xl mx-auto leading-relaxed">
-          Los planes, precios y características del servicio pueden ser actualizados con el tiempo para mejorar el
-          servicio ofrecido. En caso de modificaciones, los clientes activos serán informados con anticipación. Los
-          cambios aplicarán únicamente a futuras renovaciones de la suscripción.
+      <div class="mt-20 p-10 rounded-[32px] bg-apple-text/5 border border-apple-border text-center">
+        <p class="opacity-50 text-xs max-w-2xl mx-auto leading-relaxed font-medium italic">
+          Los planes y precios pueden actualizarse para asegurar la mejor calidad de servicio. Los clientes activos
+          mantendrán sus condiciones hasta la próxima renovación.
         </p>
       </div>
     </section>
-    </section>
 
-    <!-- Projects Intro Section (Moved Hero content) -->
-    <section id="proyectos-intro"
-      class="py-24 px-8 max-w-7xl mx-auto border-t border-zinc-900/50 text-center relative overflow-hidden">
-      <!-- Subtle Background -->
-      <div
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-portfolio-accent/5 rounded-full blur-[80px] pointer-events-none">
-      </div>
-
-      <div class="relative z-10">
-        <h2 class="text-5xl md:text-7xl font-black mb-6 tracking-tighter">
-          Mis <span class="gradient-text">Proyectos</span>
+    <!-- Projects Intro Section -->
+    <section id="proyectos-intro" class="py-32 px-8 max-w-7xl mx-auto text-center border-t border-apple-border">
+      <div class="animate-apple-in">
+        <h2 class="text-4xl md:text-7xl font-extrabold mb-8 tracking-tighter">
+          Nuestros <span class="gradient-text">Proyectos</span>
         </h2>
-        <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12">
-          Explora la colección de mis trabajos de diseño y desarrollo web.
+        <p class="opacity-70 text-lg md:text-xl max-w-2xl mx-auto font-medium">
+          Una selección de experiencias digitales diseñadas con obsesión por el detalle.
         </p>
-        <div class="flex justify-center">
-          <div class="w-12 h-1 bg-portfolio-accent rounded-full mb-12"></div>
-        </div>
       </div>
     </section>
-    <!-- Projects Section -->
-    <section id="proyectos" class="py-24 px-8 max-w-7xl mx-auto border-t border-zinc-900/50">
-      <div class="mb-16">
-        <h2 class="text-4xl font-extrabold mb-4">Proyectos Recientes</h2>
-        <div class="w-20 h-1.5 bg-portfolio-accent rounded-full"></div>
-      </div>
+
+    <!-- Projects Section (Vertical Grid - Restored) -->
+    <section id="proyectos" class="pb-32 px-8 max-w-7xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Project Card: Zapatería Joelle -->
-        <a href="joelle/index.html" class="group block relative">
-          <div
-            class="absolute -inset-1 bg-gradient-to-r from-orange-200 to-rose-400 rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-300">
-          </div>
-          <div
-            class="relative glass-card rounded-2xl overflow-hidden shadow-xl transition-transform duration-300 group-hover:-translate-y-2 will-change-transform h-full">
-            <!-- Project Image Preview -->
+
+        <!-- Project Card: Nítido Café -->
+        <a href="nitido/index.html" class="group block relative">
+          <div class="relative glass-card overflow-hidden h-full hover:bg-apple-text/5 transition-all duration-500">
             <div class="h-64 relative overflow-hidden bg-zinc-900 flex items-center justify-center">
-              <img src="joelle/media/fondo.jpg" alt="Zapatería Joelle" loading="lazy"
-                class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-portfolio-card via-transparent to-transparent"></div>
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div
-                  class="bg-white rounded-full p-1 shadow-2xl opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all overflow-hidden border-4 border-white">
-                  <img src="joelle/media/logo.jpg" alt="Logo Joelle" class="w-16 h-16 object-cover rounded-full">
+              <img
+                src="https://instagram.fmid6-1.fna.fbcdn.net/v/t51.82787-15/629491771_17987386955937528_176580744616087422_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=MzgyODg3NzgyMTEwODQwODUwNw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTkyMC5zZHIuQzMifQ%3D%3D&_nc_ohc=0j1zRwZ_stQQ7kNvwEg9YP8&_nc_oc=Adomv4pRwnaM9D1SIRJP_9-ozTkDVQv39WmwQSs2C_3g8k9H_IuKU658Kdi2Hk5ibhEJIAbawpli_leVzDindfHk&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmid6-1.fna&_nc_gid=U9sexjZ3YNWhxlZIy5Y0PA&_nc_ss=7a32e&oh=00_AfyHP4DgQDRtVwh1_HSTxKP-00d7ovgD1b6abMwmsnWl6Q&oe=69C63854"
+                alt="Nítido Café" loading="lazy"
+                class="absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 group-hover:opacity-40">
+              <!-- Animated Logo Overlay (Branding Restored) -->
+              <div
+                class="relative z-20 w-32 h-32 opacity-0 group-hover:opacity-100 transition-all duration-700 transform scale-90 group-hover:scale-100 pointer-events-none flex items-center justify-center">
+                <div class="bg-white/10 backdrop-blur-sm rounded-full p-2 shadow-2xl border border-white/20">
+                  <img
+                    src="https://scontent.fmid3-1.fna.fbcdn.net/v/t39.30808-6/348645287_1300302353949778_2890027488865205264_n.png?_nc_cat=100&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeF6tXoDE5eB9gP9ZgH2_YZCeKXTCqykHnt4pdMKrKQee3mRHAbmRp4kLwBPKDfQ9lFwaW-55PXkvbxcYAsWdVKy&_nc_ohc=9XH0i4SPafEQ7kNvwHX5NX5&_nc_oc=AdqWa9SL7dAP_OW8-YZ9jBckAbmgI5d-je0EVzXrMpOnICXEQwVpezMtfzfYx0mA286DtNaaTFYqsF9QoP2QR5bc&_nc_zt=23&_nc_ht=scontent.fmid3-1.fna&_nc_gid=6RKfGPMFZCLWxOMJogKKJQ&_nc_ss=7a32e&oh=00_AfwlFuUbHfr1X1NCTigFVnhLVMJD4UHc3F6RNS4fui2MSw&oe=69C64FD5"
+                    alt="Nítido Logo" class="w-24 h-24 object-cover rounded-full">
                 </div>
               </div>
-            </div>
-            <!-- Project Info -->
-            <div class="p-8">
-              <div class="flex justify-between items-start mb-4">
-                <h3 class="text-2xl font-bold">Zapatería Joelle</h3>
-                <span
-                  class="text-xs font-bold uppercase tracking-widest bg-rose-500/10 text-rose-400 py-1 px-3 rounded-full">E-commerce
-                  / Moda</span>
-              </div>
-              <p class="text-gray-400 mb-6 leading-relaxed">
-                Landing page elegante para una boutique de calzado femenino en Mérida. Enfoque en minimalismo, estética
-                sofisticada y catálogo visual.
-              </p>
               <div
-                class="flex items-center text-rose-400 font-bold text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
-                Explorar Proyecto <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                class="absolute inset-0 bg-gradient-to-t dark:from-black/80 from-black/20 via-transparent to-transparent">
+              </div>
+              <div class="absolute bottom-6 left-6 right-6">
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-xl font-bold mb-3 group-hover:text-apple-accent transition-colors">Nítido Café</h3>
+              <p class="opacity-70 text-sm leading-relaxed mb-6">Café de especialidad y All-Day Breakfast en el corazón
+                de Mérida.</p>
+              <div
+                class="flex items-center text-xs font-bold uppercase tracking-widest opacity-60 group-hover:opacity-100 transition-opacity text-apple-accent">
+                Ver proyecto <i data-lucide="arrow-right"
+                  class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
               </div>
             </div>
           </div>
         </a>
 
-        <!-- Project Card: Rosagante -->
-        <a href="rosagante/index.html" class="group block relative">
-          <div
-            class="absolute -inset-1 bg-gradient-to-r from-pink-400 to-rose-600 rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-300">
-          </div>
-          <div
-            class="relative glass-card rounded-2xl overflow-hidden shadow-xl transition-transform duration-300 group-hover:-translate-y-2 will-change-transform h-full">
-            <!-- Project Image Preview -->
-            <div class="h-64 relative overflow-hidden bg-zinc-900 flex items-center justify-center">
-              <img src="rosagante/media/fondo2.jpg" alt="Rosagante Cafetería" loading="lazy"
-                class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-portfolio-card via-transparent to-transparent"></div>
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div
-                  class="bg-white/90 backdrop-blur-sm rounded-full p-4 shadow-2xl opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all">
-                  <i data-lucide="coffee" class="w-10 h-10 text-pink-500"></i>
-                </div>
+        <!-- Project Card: Zapatería Joelle (Oculto de momento)
+        <a href="joelle/index.html" class="group block relative">
+          <div class="relative glass-card overflow-hidden h-full hover:bg-apple-text/5 transition-all duration-500">
+            <div class="h-64 relative overflow-hidden bg-zinc-900">
+              <img src="joelle/media/fondo.jpg" alt="Zapatería Joelle" loading="lazy"
+                class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t dark:from-black/80 from-black/20 via-transparent to-transparent"></div>
+              <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between">
               </div>
             </div>
-            <!-- Project Info -->
-            <div class="p-8 text-left">
-              <div class="flex justify-between items-start mb-4">
-                <h3 class="text-2xl font-bold">Rosagante</h3>
-                <span
-                  class="text-xs font-bold uppercase tracking-widest bg-pink-500/10 text-pink-500 py-1 px-3 rounded-full">Gastronomía
-                  / Café</span>
-              </div>
-              <p class="text-zinc-400 mb-6 leading-relaxed">
-                Diseño editorial y minimalista para una cafetería de especialidad. Enfoque en la calma, la conexión y la
-                estética visual premium.
-              </p>
-              <div
-                class="flex items-center text-pink-500 font-bold text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
-                Ver Proyecto <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+            <div class="p-8">
+              <h3 class="text-xl font-bold mb-3 group-hover:text-apple-accent transition-colors">Zapatería Joelle</h3>
+              <p class="opacity-70 text-sm leading-relaxed mb-6">Landing page elegante para boutique de calzado. Minimalismo y estética sofisticada.</p>
+              <div class="flex items-center text-xs font-bold uppercase tracking-widest opacity-60 group-hover:opacity-100 transition-opacity text-apple-accent">
+                Ver proyecto <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
               </div>
             </div>
           </div>
         </a>
+        -->
+
+        <!-- Project Card: Rosagante (Oculto de momento)
+        <a href="rosagante/index.html" class="group block relative">
+          <div class="relative glass-card overflow-hidden h-full hover:bg-apple-text/5 transition-all duration-500">
+            <div class="h-64 relative overflow-hidden bg-zinc-900">
+              <img src="rosagante/media/fondo2.jpg" alt="Rosagante" loading="lazy"
+                class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t dark:from-black/80 from-black/20 via-transparent to-transparent"></div>
+              <div class="absolute bottom-6 left-6 right-6">
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-xl font-bold mb-3 group-hover:text-apple-accent transition-colors">Rosagante</h3>
+              <p class="opacity-70 text-sm leading-relaxed mb-6">Diseño editorial y minimalista para una cafetería de especialidad.</p>
+              <div class="flex items-center text-xs font-bold uppercase tracking-widest opacity-60 group-hover:opacity-100 transition-opacity text-apple-accent">
+                Ver proyecto <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+              </div>
+            </div>
+          </div>
+        </a>
+        -->
 
         <!-- Project Card: Mare Ha' -->
         <a href="mareha/index.html" class="group block relative">
-          <div
-            class="absolute -inset-1 bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-300">
-          </div>
-          <div
-            class="relative glass-card rounded-2xl overflow-hidden shadow-xl transition-transform duration-300 group-hover:-translate-y-2 will-change-transform h-full">
-            <!-- Project Image Preview -->
+          <div class="relative glass-card overflow-hidden h-full hover:bg-apple-text/5 transition-all duration-500">
             <div class="h-64 relative overflow-hidden bg-zinc-900 flex items-center justify-center">
-              <img src="mareha/media/fondo1.jpg" alt="Mare Ha' Restaurante" loading="lazy"
-                class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-portfolio-card via-transparent to-transparent"></div>
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div
-                  class="bg-white rounded-full p-4 shadow-2xl opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all">
-                  <img src="mareha/media/logo.jpg" alt="Logo" class="w-12 h-12 rounded-full">
+              <img src="mareha/media/fondo1.jpg" alt="Mare Ha'" loading="lazy"
+                class="absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 group-hover:opacity-40">
+              <!-- Animated Logo Overlay (Branding Restored) -->
+              <div
+                class="relative z-20 w-32 h-32 opacity-0 group-hover:opacity-100 transition-all duration-700 transform scale-90 group-hover:scale-100 pointer-events-none flex items-center justify-center">
+                <div class="bg-white/10 backdrop-blur-sm rounded-full p-2 shadow-2xl border border-white/20">
+                  <img src="mareha/media/logo.jpg" alt="Mare Ha' Logo" class="w-24 h-24 object-contain rounded-full">
                 </div>
               </div>
-            </div>
-            <!-- Project Info -->
-            <div class="p-8">
-              <div class="flex justify-between items-start mb-4">
-                <h3 class="text-2xl font-bold">Mare Ha' Restaurante</h3>
-                <span
-                  class="text-xs font-bold uppercase tracking-widest bg-orange-500/10 text-orange-500 py-1 px-3 rounded-full">Gastronomía</span>
-              </div>
-              <p class="text-gray-400 mb-6 leading-relaxed">
-                Landing page premium para restaurante de mariscos en Mérida. Integración de pedidos online, mapa exacto
-                y estética náutica.
-              </p>
               <div
-                class="flex items-center text-orange-500 font-bold text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
-                Ver Proyecto <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                class="absolute inset-0 bg-gradient-to-t dark:from-black/80 from-black/20 via-transparent to-transparent">
+              </div>
+              <div class="absolute bottom-6 left-6 right-6">
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-xl font-bold mb-3 group-hover:text-apple-accent transition-colors">Mare Ha'</h3>
+              <p class="opacity-70 text-sm leading-relaxed mb-6">Landing page premium para marisquería con estética
+                náutica.</p>
+              <div
+                class="flex items-center text-xs font-bold uppercase tracking-widest opacity-60 group-hover:opacity-100 transition-opacity text-apple-accent">
+                Ver proyecto <i data-lucide="arrow-right"
+                  class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
               </div>
             </div>
           </div>
@@ -568,37 +555,31 @@
 
         <!-- Project Card: Chicago's Pizza -->
         <a href="chicagospizza/index.html" class="group block relative">
-          <div
-            class="absolute -inset-1 bg-gradient-to-r from-orange-400 to-orange-600 rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-300">
-          </div>
-          <div
-            class="relative glass-card rounded-2xl overflow-hidden shadow-xl transition-transform duration-300 group-hover:-translate-y-2 will-change-transform h-full">
-            <!-- Project Image Preview -->
+          <div class="relative glass-card overflow-hidden h-full hover:bg-apple-text/5 transition-all duration-500">
             <div class="h-64 relative overflow-hidden bg-zinc-900 flex items-center justify-center">
               <img src="chicagospizza/media/fondo.jpg" alt="Chicago's Pizza" loading="lazy"
-                class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-portfolio-card via-transparent to-transparent"></div>
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div
-                  class="bg-white rounded-full p-4 shadow-2xl opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all">
-                  <img src="chicagospizza/media/logo.png" alt="Logo" class="w-12 h-12">
+                class="absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 group-hover:opacity-40">
+              <!-- Animated Logo Overlay (Branding Restored - White Circle) -->
+              <div
+                class="relative z-20 w-32 h-32 opacity-0 group-hover:opacity-100 transition-all duration-700 transform scale-90 group-hover:scale-100 pointer-events-none flex items-center justify-center">
+                <div class="bg-white rounded-full p-4 shadow-2xl border border-white/40">
+                  <img src="chicagospizza/media/logo.png" alt="Chicago's Logo" class="w-24 h-24 object-contain">
                 </div>
               </div>
-            </div>
-            <!-- Project Info -->
-            <div class="p-8">
-              <div class="flex justify-between items-start mb-4">
-                <h3 class="text-2xl font-bold">Chicago's Pizza Mérida</h3>
-                <span
-                  class="text-xs font-bold uppercase tracking-widest bg-orange-500/10 text-orange-500 py-1 px-3 rounded-full">Gastronomía</span>
-              </div>
-              <p class="text-gray-400 mb-6 leading-relaxed">
-                Sitio web moderno y responsivo para una pizzería artesanal. Enfoque en visuales potentes, modularización
-                de código y UX fluida.
-              </p>
               <div
-                class="flex items-center text-orange-500 font-bold text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
-                Explorar Proyecto <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                class="absolute inset-0 bg-gradient-to-t dark:from-black/80 from-black/20 via-transparent to-transparent">
+              </div>
+              <div class="absolute bottom-6 left-6 right-6">
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-xl font-bold mb-3 group-hover:text-apple-accent transition-colors">Chicago's Pizza</h3>
+              <p class="opacity-70 text-sm leading-relaxed mb-6">Sitio responsivo para pizzería artesanal. Enfoque en
+                visuales potentes.</p>
+              <div
+                class="flex items-center text-xs font-bold uppercase tracking-widest opacity-60 group-hover:opacity-100 transition-opacity text-apple-accent">
+                Ver proyecto <i data-lucide="arrow-right"
+                  class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
               </div>
             </div>
           </div>
@@ -606,37 +587,32 @@
 
         <!-- Project Card: Huevos Motuleños -->
         <a href="huevosmotu/index.html" class="group block relative">
-          <div
-            class="absolute -inset-1 bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-300">
-          </div>
-          <div
-            class="relative glass-card rounded-2xl overflow-hidden shadow-xl transition-transform duration-300 group-hover:-translate-y-2 will-change-transform h-full">
-            <!-- Project Image Preview -->
+          <div class="relative glass-card overflow-hidden h-full hover:bg-apple-text/5 transition-all duration-500">
             <div class="h-64 relative overflow-hidden bg-zinc-900 flex items-center justify-center">
               <img src="huevosmotu/media/fotos/espe.jpg" alt="Huevos Motuleños" loading="lazy"
-                class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-portfolio-card via-transparent to-transparent"></div>
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div
-                  class="bg-white rounded-full p-2 shadow-2xl opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all">
-                  <img src="huevosmotu/media/fotos/logo.png" alt="Logo" class="w-16 h-16 rounded-full object-cover">
+                class="absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 group-hover:opacity-40">
+              <!-- Animated Logo Overlay (Branding Restored - Yellow Border) -->
+              <div
+                class="relative z-20 w-32 h-32 opacity-0 group-hover:opacity-100 transition-all duration-700 transform scale-90 group-hover:scale-100 pointer-events-none flex items-center justify-center">
+                <div class="bg-white/10 backdrop-blur-sm rounded-full p-2 shadow-2xl border-4 border-[#F2A65A]">
+                  <img src="huevosmotu/media/fotos/logo.png" alt="Huevos Logo"
+                    class="w-24 h-24 object-contain rounded-full">
                 </div>
               </div>
-            </div>
-            <!-- Project Info -->
-            <div class="p-8">
-              <div class="flex justify-between items-start mb-4">
-                <h3 class="text-2xl font-bold">Huevos Motuleños & Más</h3>
-                <span
-                  class="text-xs font-bold uppercase tracking-widest bg-orange-500/10 text-orange-500 py-1 px-3 rounded-full">Gastronomía</span>
-              </div>
-              <p class="text-gray-400 mb-6 leading-relaxed">
-                El auténtico sabor de la tradición yucateca. Landing page enfocada en resaltar la calidez y el sabor
-                local con ingredientes que se sirven con el alma.
-              </p>
               <div
-                class="flex items-center text-orange-500 font-bold text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
-                Explorar Proyecto <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                class="absolute inset-0 bg-gradient-to-t dark:from-black/80 from-black/20 via-transparent to-transparent">
+              </div>
+              <div class="absolute bottom-6 left-6 right-6">
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-xl font-bold mb-3 group-hover:text-apple-accent transition-colors">Huevos Motuleños</h3>
+              <p class="opacity-70 text-sm leading-relaxed mb-6">Sabor local y calidez en el corazón de la tradición
+                yucateca.</p>
+              <div
+                class="flex items-center text-xs font-bold uppercase tracking-widest opacity-60 group-hover:opacity-100 transition-opacity text-apple-accent">
+                Ver proyecto <i data-lucide="arrow-right"
+                  class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
               </div>
             </div>
           </div>
@@ -644,75 +620,66 @@
 
         <!-- Project Card: Contención -->
         <a href="contencion/index.html" class="group block relative">
-          <div
-            class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-emerald-600 rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-300">
-          </div>
-          <div
-            class="relative glass-card rounded-2xl overflow-hidden shadow-xl transition-transform duration-300 group-hover:-translate-y-2 will-change-transform h-full">
-            <!-- Project Image Preview -->
+          <div class="relative glass-card overflow-hidden h-full hover:bg-apple-text/5 transition-all duration-500">
             <div class="h-64 relative overflow-hidden bg-zinc-900 flex items-center justify-center">
-              <img src="contencion/assets/images/P1.jpg" alt="Contención: Psiquiátrico" loading="lazy"
-                class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-portfolio-card via-transparent to-transparent"></div>
-              <div class="absolute inset-0 flex items-center justify-center">
+              <img src="contencion/assets/images/P1.jpg" alt="Contención" loading="lazy"
+                class="absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 group-hover:opacity-40">
+              <!-- Animated Logo Overlay (Branding Restored - CRT Style) -->
+              <div
+                class="relative z-20 w-32 h-32 opacity-0 group-hover:opacity-100 transition-all duration-700 transform scale-90 group-hover:scale-100 pointer-events-none flex items-center justify-center">
                 <div
-                  class="bg-black/50 backdrop-blur-sm rounded-full p-4 border border-cyan-500/30 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all">
-                  <i data-lucide="ghost" class="w-8 h-8 text-cyan-400"></i>
+                  class="bg-black/80 backdrop-blur-md rounded-lg p-2 shadow-[0_0_20px_rgba(255,0,0,0.3)] border border-red-500/50">
+                  <img src="contencion/assets/images/logo.png" alt="Contención Logo"
+                    class="w-24 h-24 object-contain brightness-125 contrast-125">
                 </div>
               </div>
-            </div>
-            <!-- Project Info -->
-            <div class="p-8">
-              <div class="flex justify-between items-start mb-4">
-                <h3 class="text-2xl font-bold">Contención: Psiquiátrico</h3>
-                <span
-                  class="text-xs font-bold uppercase tracking-widest bg-cyan-500/10 text-cyan-400 py-1 px-3 rounded-full">Game
-                  Dev / Horror</span>
-              </div>
-              <p class="text-gray-400 mb-6 leading-relaxed">
-                Sitio oficial de un juego de terror psicológico con estética retro CRT. Una experiencia inmersiva sobre
-                brechas de contención en un psiquiátrico abandonado.
-              </p>
               <div
-                class="flex items-center text-cyan-400 font-bold text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
-                Explorar Proyecto <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                class="absolute inset-0 bg-gradient-to-t dark:from-black/80 from-black/20 via-transparent to-transparent">
+              </div>
+              <div class="absolute bottom-6 left-6 right-6">
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-xl font-bold mb-3 group-hover:text-apple-accent transition-colors">Contención:
+                Psiquiátrico</h3>
+              <p class="opacity-70 text-sm leading-relaxed mb-6">Sitio oficial de un juego de terror psicológico retro
+                CRT.</p>
+              <div
+                class="flex items-center text-xs font-bold uppercase tracking-widest opacity-60 group-hover:opacity-100 transition-opacity text-apple-accent">
+                Ver proyecto <i data-lucide="arrow-right"
+                  class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
               </div>
             </div>
           </div>
         </a>
-
       </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer class="py-12 border-t border-zinc-900 text-center">
-    <div class="mb-8 flex justify-center space-x-6">
-      <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="github"
-          class="w-6 h-6"></i></a>
-      <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="linkedin"
-          class="w-6 h-6"></i></a>
-      <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="mail"
-          class="w-6 h-6"></i></a>
+  <footer class="py-20 border-t border-apple-border text-center px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="opacity-50 text-sm font-medium">
+        &copy; 2026 Rodrigo DCP. <span class="hidden md:inline">Diseñado con precisión.</span>
+      </div>
+      <div class="opacity-50 text-xs font-bold uppercase tracking-widest">
+        Mérida, Yucatán
+      </div>
     </div>
-    <p class="text-gray-600 text-sm italic">&copy; 2026 Rodrigo DCP. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Mobile Menu Overlay -->
+  <!-- Mobile Menu Overlay (Minimal) -->
   <div id="mobile-menu"
-    class="fixed inset-0 z-[60] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center space-y-8 transition-all duration-500 opacity-0 pointer-events-none">
-    <button class="absolute top-8 right-8 text-gray-400 hover:text-white transition-colors" id="menu-close">
+    class="fixed inset-0 z-[150] bg-white/95 dark:bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center space-y-10 transition-all duration-500 opacity-0 pointer-events-none text-apple-text">
+    <button class="absolute top-8 right-8 opacity-50 hover:opacity-100 transition-opacity" id="menu-close">
       <i data-lucide="x" class="w-8 h-8"></i>
     </button>
     <a href="#"
-      class="mobile-nav-link text-3xl font-black tracking-tighter hover:text-portfolio-accent transition-colors">Inicio</a>
+      class="mobile-nav-link text-4xl font-extrabold tracking-tighter hover:text-apple-accent transition-colors">Inicio</a>
     <a href="#planes"
-      class="mobile-nav-link text-3xl font-black tracking-tighter hover:text-portfolio-accent transition-colors">Planes</a>
+      class="mobile-nav-link text-4xl font-extrabold tracking-tighter hover:text-apple-accent transition-colors">Planes</a>
     <a href="#proyectos"
-      class="mobile-nav-link text-3xl font-black tracking-tighter hover:text-portfolio-accent transition-colors">Proyectos</a>
-    <a href="https://rodrigodcp.github.io/contencion/RodrigoDCP.html"
-      class="mobile-nav-link text-3xl font-black tracking-tighter hover:text-portfolio-accent transition-colors">Sobre
-      Mí</a>
+      class="mobile-nav-link text-4xl font-extrabold tracking-tighter hover:text-apple-accent transition-colors">Proyectos</a>
   </div>
 
   <script>
@@ -722,10 +689,10 @@
     // Efecto de scroll para el header
     window.addEventListener('scroll', () => {
       const header = document.getElementById('header');
-      if (window.scrollY > 20) {
-        header.classList.add('bg-portfolio-bg/80', 'backdrop-blur-md', 'border-b', 'border-white/10');
+      if (window.scrollY > 50) {
+        header.classList.add('bg-white/80', 'dark:bg-black/80', 'backdrop-blur-xl', 'py-3', 'border-b', 'border-apple-border');
       } else {
-        header.classList.remove('bg-portfolio-bg/80', 'backdrop-blur-md', 'border-b', 'border-white/10');
+        header.classList.remove('bg-white/80', 'dark:bg-black/80', 'backdrop-blur-xl', 'py-3', 'border-b', 'border-apple-border');
       }
     });
 
@@ -741,11 +708,36 @@
       document.body.classList.toggle('overflow-hidden');
     };
 
-    menuToggle.addEventListener('click', toggleMenu);
-    menuClose.addEventListener('click', toggleMenu);
+    if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
+    if (menuClose) menuClose.addEventListener('click', toggleMenu);
 
     navLinks.forEach(link => {
       link.addEventListener('click', toggleMenu);
+    });
+
+    // Lógica de cambio de modo (Light/Dark)
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.theme = isDark ? 'dark' : 'light';
+      // Reinicializar iconos para que se vean bien
+      lucide.createIcons();
+    });
+
+    // Smooth Scroll para el Dock y otros enlaces
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
     });
   </script>
 </body>
