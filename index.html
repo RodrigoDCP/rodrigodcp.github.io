@@ -139,10 +139,17 @@
     .animate-apple-in {
       animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
+
     @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
     }
+
     .animate-marquee {
       animation: marquee 30s linear infinite;
     }
@@ -217,36 +224,58 @@
         </div>
       </div>
 
-      <div class="mt-20 w-full max-w-5xl mx-auto overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] [webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+      <div
+        class="mt-20 w-full max-w-5xl mx-auto overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] [webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
         <div class="flex animate-marquee whitespace-nowrap gap-24 items-center py-8">
           <!-- First Set -->
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/250px-HTML5_logo_and_wordmark.svg.png" 
-               alt="HTML5" class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
-          <img src="https://humancoders-formations.s3.eu-west-1.amazonaws.com/uploads/course/logo/74/formation-css-avance.png" 
-               alt="CSS3" class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
-          <img src="https://d3rtegloudc34g.cloudfront.net/_next/image/?url=https%3A%2F%2Fik.imagekit.io%2Fd9mvewbju%2FCourse%2Fjavascript-header-image_jYdPec3TG8&w=750&q=75" 
-               alt="JavaScript" class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
-          <img src="https://cdn.prod.website-files.com/6088303c28a7c75678aa21d8/65c21f8033fbf3b0de137271_Hostinger_Vertical_Purple.png" 
-               alt="Hostinger" class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
-          <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/collections/github-pages-examples/github-pages-examples.png" 
-               alt="GitHub Pages" class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
-          
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/250px-HTML5_logo_and_wordmark.svg.png"
+            alt="HTML5"
+            class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
+          <img
+            src="https://humancoders-formations.s3.eu-west-1.amazonaws.com/uploads/course/logo/74/formation-css-avance.png"
+            alt="CSS3"
+            class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
+          <img
+            src="https://d3rtegloudc34g.cloudfront.net/_next/image/?url=https%3A%2F%2Fik.imagekit.io%2Fd9mvewbju%2FCourse%2Fjavascript-header-image_jYdPec3TG8&w=750&q=75"
+            alt="JavaScript"
+            class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
+          <img
+            src="https://cdn.prod.website-files.com/6088303c28a7c75678aa21d8/65c21f8033fbf3b0de137271_Hostinger_Vertical_Purple.png"
+            alt="Hostinger"
+            class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
+          <img
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/collections/github-pages-examples/github-pages-examples.png"
+            alt="GitHub Pages"
+            class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
+
           <!-- Duplicate for infinite scroll -->
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/250px-HTML5_logo_and_wordmark.svg.png" 
-               alt="HTML5" class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
-          <img src="https://humancoders-formations.s3.eu-west-1.amazonaws.com/uploads/course/logo/74/formation-css-avance.png" 
-               alt="CSS3" class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
-          <img src="https://d3rtegloudc34g.cloudfront.net/_next/image/?url=https%3A%2F%2Fik.imagekit.io%2Fd9mvewbju%2FCourse%2Fjavascript-header-image_jYdPec3TG8&w=750&q=75" 
-               alt="JavaScript" class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
-          <img src="https://cdn.prod.website-files.com/6088303c28a7c75678aa21d8/65c21f8033fbf3b0de137271_Hostinger_Vertical_Purple.png" 
-               alt="Hostinger" class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
-          <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/collections/github-pages-examples/github-pages-examples.png" 
-               alt="GitHub Pages" class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/250px-HTML5_logo_and_wordmark.svg.png"
+            alt="HTML5"
+            class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
+          <img
+            src="https://humancoders-formations.s3.eu-west-1.amazonaws.com/uploads/course/logo/74/formation-css-avance.png"
+            alt="CSS3"
+            class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
+          <img
+            src="https://d3rtegloudc34g.cloudfront.net/_next/image/?url=https%3A%2F%2Fik.imagekit.io%2Fd9mvewbju%2FCourse%2Fjavascript-header-image_jYdPec3TG8&w=750&q=75"
+            alt="JavaScript"
+            class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
+          <img
+            src="https://cdn.prod.website-files.com/6088303c28a7c75678aa21d8/65c21f8033fbf3b0de137271_Hostinger_Vertical_Purple.png"
+            alt="Hostinger"
+            class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
+          <img
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/collections/github-pages-examples/github-pages-examples.png"
+            alt="GitHub Pages"
+            class="h-14 object-contain opacity-70 hover:opacity-100 transition-all duration-500 hover:scale-110">
         </div>
       </div>
 
       <!-- Scroll Indicator (Restored) -->
-      <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 animate-bounce opacity-40">
+      <div
+        class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 animate-bounce opacity-40">
         <span class="inline-block text-[10px] font-bold uppercase tracking-[0.2em] -translate-x-[0.1em]">Desliza</span>
         <i data-lucide="chevron-down" class="w-5 h-5"></i>
       </div>
@@ -448,7 +477,7 @@
           <div class="relative glass-card overflow-hidden h-full hover:bg-apple-text/5 transition-all duration-500">
             <div class="h-64 relative overflow-hidden bg-zinc-900 flex items-center justify-center">
               <img
-                src="https://instagram.fmid6-1.fna.fbcdn.net/v/t51.82787-15/629491771_17987386955937528_176580744616087422_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=MzgyODg3NzgyMTEwODQwODUwNw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTkyMC5zZHIuQzMifQ%3D%3D&_nc_ohc=0j1zRwZ_stQQ7kNvwEg9YP8&_nc_oc=Adomv4pRwnaM9D1SIRJP_9-ozTkDVQv39WmwQSs2C_3g8k9H_IuKU658Kdi2Hk5ibhEJIAbawpli_leVzDindfHk&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmid6-1.fna&_nc_gid=U9sexjZ3YNWhxlZIy5Y0PA&_nc_ss=7a32e&oh=00_AfyHP4DgQDRtVwh1_HSTxKP-00d7ovgD1b6abMwmsnWl6Q&oe=69C63854"
+                src="https://instagram.fmid3-1.fna.fbcdn.net/v/t39.30808-6/480178247_519020411213513_5747985419636801279_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=MzU1NzAyODIyNzI3OTI5NDY1Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjIwNDh4MTM2NS5zZHIuQzMifQ%3D%3D&_nc_ohc=iELnU7uc3Y4Q7kNvwGASIfQ&_nc_oc=AdrYhtQRZubudRZzXBr-UPfrKHHXvTvWoYrXaNd7hlywnVz2xZBzYiA49rQgB04PdSJmHRo-x2uTCF5JPXEhzFdW&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmid3-1.fna&_nc_gid=lTDMoTvSp1xbMM9ncQrphQ&_nc_ss=7a32e&oh=00_AfxiDrP4faCSHRn3v5WnBnLfzhs6L_5J7GaM9G2Mnqzqjg&oe=69CCB7BB"
                 alt="Nítido Café" loading="lazy"
                 class="absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 group-hover:opacity-40">
               <!-- Animated Logo Overlay (Branding Restored) -->
@@ -456,7 +485,7 @@
                 class="relative z-20 w-32 h-32 opacity-0 group-hover:opacity-100 transition-all duration-700 transform scale-90 group-hover:scale-100 pointer-events-none flex items-center justify-center">
                 <div class="bg-white/10 backdrop-blur-sm rounded-full p-2 shadow-2xl border border-white/20">
                   <img
-                    src="https://scontent.fmid3-1.fna.fbcdn.net/v/t39.30808-6/348645287_1300302353949778_2890027488865205264_n.png?_nc_cat=100&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeF6tXoDE5eB9gP9ZgH2_YZCeKXTCqykHnt4pdMKrKQee3mRHAbmRp4kLwBPKDfQ9lFwaW-55PXkvbxcYAsWdVKy&_nc_ohc=9XH0i4SPafEQ7kNvwHX5NX5&_nc_oc=AdqWa9SL7dAP_OW8-YZ9jBckAbmgI5d-je0EVzXrMpOnICXEQwVpezMtfzfYx0mA286DtNaaTFYqsF9QoP2QR5bc&_nc_zt=23&_nc_ht=scontent.fmid3-1.fna&_nc_gid=6RKfGPMFZCLWxOMJogKKJQ&_nc_ss=7a32e&oh=00_AfwlFuUbHfr1X1NCTigFVnhLVMJD4UHc3F6RNS4fui2MSw&oe=69C64FD5"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3-teg3TyuouvvUdFO7lEzt8YIrK5KmwUvqQ&s"
                     alt="Nítido Logo" class="w-24 h-24 object-cover rounded-full">
                 </div>
               </div>
@@ -522,7 +551,7 @@
         -->
 
         <!-- Project Card: Mare Ha' -->
-        <a href="mareha/index.html" class="group block relative">
+        <a href="https://mareha.com.mx" class="group block relative">
           <div class="relative glass-card overflow-hidden h-full hover:bg-apple-text/5 transition-all duration-500">
             <div class="h-64 relative overflow-hidden bg-zinc-900 flex items-center justify-center">
               <img src="mareha/media/fondo1.jpg" alt="Mare Ha'" loading="lazy"
@@ -619,7 +648,7 @@
         </a>
 
         <!-- Project Card: Contención -->
-        <a href="contencion/index.html" class="group block relative">
+        <a href="https://rodrigodcp.github.io/contencion/index.html" class="group block relative">
           <div class="relative glass-card overflow-hidden h-full hover:bg-apple-text/5 transition-all duration-500">
             <div class="h-64 relative overflow-hidden bg-zinc-900 flex items-center justify-center">
               <img src="contencion/assets/images/P1.jpg" alt="Contención" loading="lazy"
