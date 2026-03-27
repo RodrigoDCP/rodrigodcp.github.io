@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taquería Don Michel | Mérida, Yucatán</title>
+
+  <!-- Google Fonts para tipografía atractiva -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS (Vía CDN para mantener todo en un solo archivo) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Configuración personalizada de Tailwind -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            taqueria: {
+              red: '#D9381E',    /* Rojo Pastor */
+              yellow: '#F2A900', /* Amarillo Maíz */
+              dark: '#1C1C1C',   /* Gris muy oscuro */
+              light: '#FFFDF7',  /* Blanco cálido */
+              gray: '#F3F4F6'    /* Gris fondo */
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Oswald', 'sans-serif'] // Para títulos con impacto
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Estilos adicionales personalizados */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .hero-pattern {
+      background-image: linear-gradient(rgba(28, 28, 28, 0.75), rgba(28, 28, 28, 0.85)), url('https://images.rappi.com.mx/restaurants_background/tacos02-1663685019417.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .menu-item-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .menu-item-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(217, 56, 30, 0.2);
+    }
+
+    /* Ocultar barra de desplazamiento en el menú horizontal de categorías */
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-taqueria-dark bg-taqueria-light antialiased">
+
+  <!-- NAVEGACIÓN -->
+  <nav
+    class="fixed top-0 left-0 w-full z-50 bg-taqueria-dark/95 backdrop-blur-sm text-white shadow-lg border-b border-taqueria-red/20 transition-all duration-300 py-2"
+    id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <!-- Logo -->
+        <div class="flex-shrink-0 flex items-center">
+          <a href="#" class="font-display font-bold text-2xl tracking-wide flex items-center gap-3">
+            <span>DON <span class="text-taqueria-yellow">MICHEL</span></span>
+          </a>
+        </div>
+
+        <!-- Enlaces Desktop -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#nosotros" class="font-medium hover:text-taqueria-yellow transition-colors">La Esencia</a>
+          <a href="#menu" class="font-medium hover:text-taqueria-yellow transition-colors">Menú</a>
+          <a href="#sucursales" class="font-medium hover:text-taqueria-yellow transition-colors">Sucursales</a>
+          <a href="#pedir"
+            class="bg-taqueria-red hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-bold transition-transform transform hover:scale-105 shadow-md">
+            Pedir Ahora
+          </a>
+        </div>
+
+        <!-- Botón Menú Móvil -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-btn" class="text-white hover:text-taqueria-yellow focus:outline-none">
+            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menú Móvil Desplegable -->
+    <div id="mobile-menu" class="hidden md:hidden bg-taqueria-dark border-t border-gray-800">
+      <div class="px-2 pt-2 pb-5 space-y-1 sm:px-3 flex flex-col items-center">
+        <a href="#nosotros"
+          class="mobile-link block px-3 py-3 w-full text-center text-base font-medium text-gray-200 hover:text-taqueria-yellow">La
+          Esencia</a>
+        <a href="#menu"
+          class="mobile-link block px-3 py-3 w-full text-center text-base font-medium text-gray-200 hover:text-taqueria-yellow">Menú</a>
+        <a href="#sucursales"
+          class="mobile-link block px-3 py-3 w-full text-center text-base font-medium text-gray-200 hover:text-taqueria-yellow">Sucursales</a>
+        <a href="#pedir"
+          class="mobile-link mt-4 inline-block w-3/4 text-center bg-taqueria-red text-white px-5 py-3 rounded-full font-bold">Pedir
+          Ahora</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero-pattern relative h-[90vh] flex items-center justify-center text-center">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-taqueria-dark/90"></div>
+
+    <div class="relative z-10 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+      <img src="https://images.rappi.com.mx/restaurants_logo/taqueria-don-michel-logo1-1562783740817-1588260877328.png"
+        alt="Logo Don Michel" class="w-32 md:w-48 mx-auto mb-6 drop-shadow-2xl animate-fade-in-up">
+      <h1
+        class="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-6 uppercase leading-tight text-shadow-lg">
+        El auténtico sabor <br />
+        <span class="text-taqueria-red">de la noche</span>
+      </h1>
+      <p class="mt-4 text-lg md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto font-light">
+        Tacos, tortas, quesos fundidos y más. Abiertos todos los días para calmar tu antojo hasta la madrugada.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#menu"
+          class="bg-taqueria-red hover:bg-red-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-red-500/30">
+          Ver Nuestro Menú
+        </a>
+        <a href="#sucursales"
+          class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-full font-bold text-lg transition-all">
+          Encontrar Sucursal
+        </a>
+      </div>
+    </div>
+
+    <!-- Flecha hacia abajo -->
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <a href="#nosotros" class="text-white/70 hover:text-white">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- SECCIÓN NOSOTROS (LA ESENCIA) -->
+  <section id="nosotros" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row items-center gap-16">
+        <div class="lg:w-1/2">
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+            <!-- Imagen representativa (Trompo de pastor / Taquería) -->
+            <img
+              src="https://scontent.fmid3-1.fna.fbcdn.net/v/t1.6435-9/161412474_2843732949217290_5010283625306464633_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeFsgoJ03zvPMglFbpvx6d7v3H4079N-0LXcfjTv037Qte6gUNlhdeDn60ZbJ1nSwGIbSkpB7QLYNXc1r1TnJsg3&_nc_ohc=OlENeckDoDEQ7kNvwFttvGT&_nc_oc=AdqgQ5hyvhV_uM8gKqhiSsWdq9NbHxHMagXgkg8iSwSveT6pY8H3e_8q2dcxkyIi0rml8R6YSbJbKzYTt9x9yqlu&_nc_zt=23&_nc_ht=scontent.fmid3-1.fna&_nc_gid=pfI0VFbe3s6HaYURCVxI9A&_nc_ss=7a32e&oh=00_AfyGjRLnyU8nvFl3rZYOaKu9WVlHceSy319RLbEnrCIHoQ&oe=69ED5DEB"
+              alt="[Imagen de Tacos al Pastor en trompo]"
+              onerror="this.onerror=null;this.src='https://placehold.co/800x600/D9381E/FFF?text=[Imagen+Tacos+al+Pastor]';"
+              class="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 border-4 border-taqueria-yellow/30 rounded-2xl m-4 pointer-events-none"></div>
+          </div>
+        </div>
+
+        <div class="lg:w-1/2 space-y-6">
+          <h2 class="text-taqueria-red font-bold tracking-widest uppercase text-sm">La Esencia de Mérida</h2>
+          <h3 class="text-4xl md:text-5xl font-display font-bold text-taqueria-dark leading-tight">
+            Más que tacos, <br>una <span class="text-taqueria-yellow">tradición</span> yucateca.
+          </h3>
+          <p class="text-gray-600 text-lg leading-relaxed">
+            En Taquería Don Michel sabemos que el hambre no tiene horario. Con presencia en Francisco de Montejo, Caucel
+            y Conkal, nos hemos convertido en el punto de encuentro favorito de Mérida para disfrutar de una cena
+            inigualable.
+          </p>
+          <p class="text-gray-600 text-lg leading-relaxed">
+            Desde nuestro inconfundible Pastor hasta nuestros jugosos cortes de Arrachera y Bistec. Ya sea que vengas
+            por un taco rápido, una Gringa bien surtida o pidas "por kilo" para la familia, aquí siempre hay calidad,
+            calidez y mucho sabor.
+          </p>
+
+          <div class="grid grid-cols-2 gap-6 pt-6 border-t border-gray-100">
+            <div>
+              <h4 class="font-display font-bold text-2xl text-taqueria-dark mb-1">6:30 PM - 1:00 AM</h4>
+              <p class="text-sm text-gray-500">Horario Nocturno</p>
+            </div>
+            <div>
+              <h4 class="font-display font-bold text-2xl text-taqueria-dark mb-1">4 Sucursales</h4>
+              <p class="text-sm text-gray-500">Siempre cerca de ti</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN MENÚ INTERACTIVO -->
+  <section id="menu" class="py-20 bg-taqueria-gray">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-taqueria-red font-bold tracking-widest uppercase text-sm mb-2">Nuestro Sabor</h2>
+        <h3 class="text-4xl md:text-5xl font-display font-bold text-taqueria-dark">Menú Especialidades</h3>
+      </div>
+
+      <!-- Botones de Filtro -->
+      <div class="flex overflow-x-auto hide-scrollbar gap-2 md:gap-4 justify-start md:justify-center mb-10 pb-4">
+        <button
+          class="filter-btn active px-6 py-2 rounded-full font-semibold whitespace-nowrap bg-taqueria-red text-white shadow-md"
+          data-filter="todos">Todos</button>
+        <button
+          class="filter-btn px-6 py-2 rounded-full font-semibold whitespace-nowrap bg-white text-gray-600 hover:bg-gray-100 shadow-sm border border-gray-200"
+          data-filter="tacos">Tacos</button>
+        <button
+          class="filter-btn px-6 py-2 rounded-full font-semibold whitespace-nowrap bg-white text-gray-600 hover:bg-gray-100 shadow-sm border border-gray-200"
+          data-filter="tortas">Tortas</button>
+        <button
+          class="filter-btn px-6 py-2 rounded-full font-semibold whitespace-nowrap bg-white text-gray-600 hover:bg-gray-100 shadow-sm border border-gray-200"
+          data-filter="especiales">Nachos</button>
+        <button
+          class="filter-btn px-6 py-2 rounded-full font-semibold whitespace-nowrap bg-white text-gray-600 hover:bg-gray-100 shadow-sm border border-gray-200"
+          data-filter="complementos">Complementos</button>
+        <button
+          class="filter-btn px-6 py-2 rounded-full font-semibold whitespace-nowrap bg-white text-gray-600 hover:bg-gray-100 shadow-sm border border-gray-200"
+          data-filter="kilos">Por Kilos</button>
+      </div>
+
+      <!-- Contenedor del Menú (Llenado por JS) -->
+      <div id="menu-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Los items se renderizan aquí dinámicamente -->
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-sm text-gray-500 mb-4">* Los precios pueden variar dependiendo de la sucursal y plataforma de
+          entrega.</p>
+        <a href="#pedir"
+          class="inline-flex items-center gap-2 text-taqueria-red font-bold hover:text-red-800 transition-colors">
+          Ver menú completo en tu App favorita
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN SUCURSALES -->
+  <section id="sucursales" class="py-20 bg-taqueria-dark text-white relative overflow-hidden">
+    <!-- Decoración de fondo -->
+    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-taqueria-red opacity-10 blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-taqueria-yellow opacity-10 blur-3xl">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-16">
+        <h2 class="text-taqueria-yellow font-bold tracking-widest uppercase text-sm mb-2">Visítanos</h2>
+        <h3 class="text-4xl md:text-5xl font-display font-bold">Nuestras Ubicaciones</h3>
+        <p class="mt-4 text-gray-400 max-w-2xl mx-auto">Te esperamos todos los días de 6:30 p.m. a 1:00 a.m. (Caucel y
+          Conkal descansan los martes).</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Sucursal 1 -->
+        <div
+          class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-6 rounded-2xl hover:border-taqueria-red transition-colors">
+          <div class="flex items-start gap-4">
+            <div class="bg-taqueria-red/20 p-3 rounded-xl text-taqueria-red">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-xl font-display font-bold mb-2">Don Michel I (Fco. de Montejo)</h4>
+              <p class="text-gray-400 mb-2">Calle 54 332 (X 49D y 49E)<br>Fracc. Francisco de Montejo, Mérida.</p>
+              <span class="inline-block px-3 py-1 bg-green-500/20 text-green-400 text-xs font-bold rounded-full">Lunes a
+                Domingo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sucursal 2 -->
+        <div
+          class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-6 rounded-2xl hover:border-taqueria-red transition-colors">
+          <div class="flex items-start gap-4">
+            <div class="bg-taqueria-red/20 p-3 rounded-xl text-taqueria-red">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-xl font-display font-bold mb-2">Don Michel II (Fco. de Montejo)</h4>
+              <p class="text-gray-400 mb-2">Calle 42 310<br>Fracc. Francisco de Montejo, Mérida.</p>
+              <span class="inline-block px-3 py-1 bg-green-500/20 text-green-400 text-xs font-bold rounded-full">Lunes a
+                Domingo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sucursal 3 -->
+        <div
+          class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-6 rounded-2xl hover:border-taqueria-red transition-colors">
+          <div class="flex items-start gap-4">
+            <div class="bg-taqueria-yellow/20 p-3 rounded-xl text-taqueria-yellow">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-xl font-display font-bold mb-2">Don Michel Caucel</h4>
+              <p class="text-gray-400 mb-2">Calle 60 602 E<br>Cd. Caucel, Mérida.</p>
+              <span
+                class="inline-block px-3 py-1 bg-yellow-500/20 text-yellow-400 text-xs font-bold rounded-full">Cierra
+                los Martes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sucursal 4 -->
+        <div
+          class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-6 rounded-2xl hover:border-taqueria-red transition-colors">
+          <div class="flex items-start gap-4">
+            <div class="bg-taqueria-yellow/20 p-3 rounded-xl text-taqueria-yellow">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-xl font-display font-bold mb-2">Don Michel 3 (Conkal)</h4>
+              <p class="text-gray-400 mb-2">22 186-C por 45 y 47<br>Conkal, Yucatán.</p>
+              <span
+                class="inline-block px-3 py-1 bg-yellow-500/20 text-yellow-400 text-xs font-bold rounded-full">Cierra
+                los Martes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN CTA / PEDIR A DOMICILIO -->
+  <section id="pedir" class="py-24 bg-taqueria-red relative text-center px-4">
+    <!-- Textura sutil -->
+    <div class="absolute inset-0 opacity-10"
+      style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'3\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'3\'/%3E%3C/g%3E%3C/svg%3E');">
+    </div>
+
+    <div class="relative z-10 max-w-3xl mx-auto text-white">
+      <h2 class="text-4xl md:text-6xl font-display font-bold mb-4 text-shadow">¿Se te antojó?</h2>
+
+      <!-- Logo Rappi con fondo para legibilidad -->
+      <div class="inline-block bg-white px-10 py-6 rounded-3xl shadow-2xl mb-10 transition-transform hover:scale-105">
+        <img src="https://www.urbannutrition.ec/wp-content/uploads/2022/05/LOGO-RAPPI.png" alt="Rappi Logo"
+          class="h-14 md:h-24 w-auto object-contain">
+      </div>
+      <p class="text-xl mb-10 text-white/90">Haz tu pedido ahora mismo. Encuéntranos en tus aplicaciones de comida
+        favoritas y disfruta sin salir de casa.</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
+        <a href="https://www.rappi.com.mx/restaurantes/1923226137-taqueria-don-michel" target="_blank"
+          class="bg-taqueria-dark text-white hover:bg-black font-bold py-4 px-8 rounded-full shadow-xl transition-transform transform hover:scale-105 flex items-center justify-center gap-2 border border-gray-700">
+          <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" />
+          </svg>
+          Pedir Montejo I (Calle 54)
+        </a>
+        <a href="https://www.rappi.com.mx/restaurantes/1923226138-taqueria-don-michel" target="_blank"
+          class="bg-taqueria-dark text-white hover:bg-black font-bold py-4 px-8 rounded-full shadow-xl transition-transform transform hover:scale-105 flex items-center justify-center gap-2 border border-gray-700">
+          <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" />
+          </svg>
+          Pedir Montejo II (Calle 42)
+        </a>
+        <a href="https://www.rappi.com.mx/restaurantes/1306717939-taqueria-don-michel" target="_blank"
+          class="bg-taqueria-dark text-white hover:bg-black font-bold py-4 px-8 rounded-full shadow-xl transition-transform transform hover:scale-105 flex items-center justify-center gap-2 border border-gray-700">
+          <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" />
+          </svg>
+          Pedir Caucel
+        </a>
+        <a href="https://www.rappi.com.mx/restaurantes/1923226140-taqueria-don-michel" target="_blank"
+          class="bg-taqueria-dark text-white hover:bg-black font-bold py-4 px-8 rounded-full shadow-xl transition-transform transform hover:scale-105 flex items-center justify-center gap-2 border border-gray-700">
+          <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" />
+          </svg>
+          Pedir Conkal
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-taqueria-dark text-gray-400 py-12 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+      <div>
+        <a href="#"
+          class="font-display font-bold text-2xl tracking-wide flex items-center justify-center md:justify-start gap-2 mb-4">
+          <span class="text-white">DON <span class="text-taqueria-yellow">MICHEL</span></span>
+        </a>
+        <p class="text-sm">El auténtico sabor de la noche en Mérida, Yucatán. Tacos, tortas y mucho más.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Enlaces Rápidos</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#nosotros" class="hover:text-taqueria-yellow transition-colors">La Esencia</a></li>
+          <li><a href="#menu" class="hover:text-taqueria-yellow transition-colors">Nuestro Menú</a></li>
+          <li><a href="#sucursales" class="hover:text-taqueria-yellow transition-colors">Sucursales</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Contacto & Redes</h4>
+        <p class="text-sm mb-4">Síguenos en nuestras redes sociales para promociones exclusivas.</p>
+        <div class="flex justify-center md:justify-start gap-4">
+          <!-- Icono FB -->
+          <a href="https://www.facebook.com/taqueriasdonmichel?locale=es_LA" target="_blank"
+            class="text-gray-400 hover:text-white transition-colors">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M22.675 0h-21.35C.597 0 0 .597 0 1.325v21.351C0 23.403.597 24 1.325 24h11.495v-9.294H9.691v-3.622h3.129V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.597 1.323-1.324V1.325C24 .597 23.403 0 22.675 0z" />
+            </svg>
+          </a>
+          <!-- Icono IG -->
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-800 text-center text-xs">
+      <p>&copy; 2024 RODRIGO DCP. Todos los derechos reservados.</p>
+      <p class="mt-1 opacity-50">Sitio creado para demostración.</p>
+    </div>
+  </footer>
+
+  <!-- LOGICA JAVASCRIPT -->
+  <script>
+    // 1. Navbar Scroll Effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('py-0');
+        navbar.classList.remove('py-2');
+      } else {
+        navbar.classList.add('py-2');
+        navbar.classList.remove('py-0');
+      }
+    });
+
+    // 2. Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // 3. Datos Reales del Menú (Categorizados)
+    const menuItems = [
+      // Tacos
+      { name: "Tacos de Maíz", category: "tacos", price: "$22.00", desc: "Tacos en tortilla de maíz e ingrediente según su elección.", icon: "🌮" },
+      { name: "Tacos de Harina", category: "tacos", price: "$27.00", desc: "Tacos de tortilla de harina e ingrediente según su elección.", icon: "🫓" },
+      { name: "Mestiza", category: "tacos", price: "$27.00", desc: "Taco de maíz con queso e ingrediente según su elección.", icon: "🧀" },
+      { name: "Gringas", category: "tacos", price: "$38.00", desc: "Taco de harina con queso e ingrediente según su elección.", icon: "🌮" },
+
+      // Tortas
+      { name: "Tortas Normales", category: "tortas", price: "$57.00", desc: "Torta con ingrediente a elegir y cebolla cruda.", icon: "🥖" },
+      { name: "Tortas Especiales", category: "tortas", price: "$72.00", desc: "Torta con ingrediente a elegir, queso y cebolla cocida.", icon: "🥪" },
+
+      // Especiales & Nachos
+      { name: "Nachos Orden Completa", category: "especiales", price: "$215.00", desc: "Nachos con tostadas, frijoles, queso, guacamole, cebolla cambray, jalapeño...", icon: "🧀" },
+      { name: "Nachos Media Orden", category: "especiales", price: "$151.00", desc: "Nachos con tostadas, frijoles, queso, guacamole, cebolla cambray, jalapeño...", icon: "🧀" },
+
+      // Complementos
+      { name: "Frijoles Charros Especiales", category: "complementos", price: "$133.00", desc: "Frijoles charros con pastor, queso, tostadas, cebolla y limón.", icon: "🍲" },
+      { name: "Frijoles Charros Normales", category: "complementos", price: "$91.00", desc: "Frijoles charros con tostadas, cebolla y limón.", icon: "🍲" },
+      { name: "Orden Cebollas Cambray", category: "complementos", price: "$109.00", desc: "Cebollas cambray asadas.", icon: "🧅" },
+      { name: "Orden 3 Quesadillas", category: "complementos", price: "$127.00", desc: "Quesadillas naturales (3 piezas).", icon: "🧀" },
+      { name: "Orden Guacamole", category: "complementos", price: "$127.00", desc: "Guacamole incluye tostadas.", icon: "🥑" },
+      { name: "Quesos Fundidos", category: "complementos", price: "$100.00", desc: "Queso fundido con ingrediente a elegir y 3 tortillas de harina.", icon: "🥘" },
+
+      // Por Kilos
+      { name: "1/4 Kilo de Carne", category: "kilos", price: "$151.00", desc: "1/4 k de Carne a elegir, tortillas de maíz, tortillas de harina, salsa verde...", icon: "⚖️" },
+      { name: "1/2 Kilo de Carne", category: "kilos", price: "$264.00", desc: "1/2 k de Carne a elegir, tortillas de maíz, tortillas de harina, salsa verde...", icon: "⚖️" },
+      { name: "3/4 Kilo de Carne", category: "kilos", price: "$365.00", desc: "3/4 k de Carne a elegir, tortillas de maíz, tortillas de harina, salsa verde...", icon: "⚖️" },
+      { name: "1 Kilo de Carne", category: "kilos", price: "$468.00", desc: "1 k de Carne a elegir, tortillas de maíz, tortillas de harina, salsa verde...", icon: "⚖️" }
+    ];
+
+    // 4. Lógica de Filtrado y Renderizado del Menú
+    const menuContainer = document.getElementById('menu-container');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+
+    function renderMenu(filter) {
+      menuContainer.innerHTML = '';
+
+      const filteredItems = filter === 'todos'
+        ? menuItems
+        : menuItems.filter(item => item.category === filter);
+
+      filteredItems.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'menu-item-card bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between';
+
+        card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 class="font-display font-bold text-xl text-taqueria-dark flex items-center gap-2">
+                                <span>${item.icon}</span> ${item.name}
+                            </h4>
+                            <span class="font-bold text-taqueria-red bg-red-50 px-2 py-1 rounded text-sm">${item.price}</span>
+                        </div>
+                        <p class="text-gray-500 text-sm leading-relaxed">${item.desc}</p>
+                    </div>
+                `;
+        menuContainer.appendChild(card);
+      });
+    }
+
+    // Inicializar menú
+    renderMenu('todos');
+
+    // Eventos de botones de filtro
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        // Remover estado activo de todos
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-taqueria-red', 'text-white');
+          b.classList.add('bg-white', 'text-gray-600');
+        });
+
+        // Añadir estado activo al clickeado
+        const target = e.target;
+        target.classList.remove('bg-white', 'text-gray-600');
+        target.classList.add('bg-taqueria-red', 'text-white');
+
+        // Filtrar
+        renderMenu(target.dataset.filter);
+      });
+    });
+  </script>
+</body>
+
+</html>
