@@ -71,7 +71,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, rgba(24, 24, 27, 0.95) 0%, rgba(39, 39, 42, 0.8) 100%); /* Tonos oscuros / neutros que realzan el amarillo */
+      background: linear-gradient(135deg, rgba(24, 24, 27, 0.95) 0%, rgba(39, 39, 42, 0.8) 100%);
+      /* Tonos oscuros / neutros que realzan el amarillo */
       z-index: 1;
     }
 
@@ -84,7 +85,8 @@
     .glass-form {
       background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(12px);
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(250, 204, 21, 0.3); /* Borde luminoso amarillo */
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(250, 204, 21, 0.3);
+      /* Borde luminoso amarillo */
       border: 1px solid rgba(255, 255, 255, 0.4);
     }
 
@@ -95,9 +97,19 @@
     }
 
     @keyframes pulse-slow {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.8; transform: scale(1.02); }
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.8;
+        transform: scale(1.02);
+      }
     }
+
     .animate-pulse-slow {
       animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
@@ -107,6 +119,7 @@
       transform: translateY(30px);
       transition: all 0.8s ease-out;
     }
+
     .reveal.active {
       opacity: 1;
       transform: translateY(0);
@@ -121,7 +134,8 @@
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <!-- Recreación tipográfica del Logo -->
       <a href="#" class="logo-text-container text-white group">
-        <span class="font-serif text-3xl md:text-4xl font-bold tracking-wide group-hover:text-amber-200 transition">Sueño
+        <span
+          class="font-serif text-3xl md:text-4xl font-bold tracking-wide group-hover:text-amber-200 transition">Sueño
           Real</span>
         <span class="w-full h-0.5 bg-accent mt-1 mb-1 shadow-[0_0_10px_rgba(250,204,21,0.6)]"></span>
         <span class="text-[0.55rem] md:text-xs tracking-[0.2em] font-medium opacity-90 uppercase">Tu patrimonio en tus
@@ -132,28 +146,39 @@
         <a href="#contacto" class="text-white hover:text-gray-200 font-medium transition">Asesoría Gratuita</a>
         <a href="#nosotros" class="text-white hover:text-gray-200 font-medium transition">Nosotros</a>
         <a href="#servicios" class="text-white hover:text-gray-200 font-medium transition">Servicios</a>
+        <a href="#testimonios" class="text-white hover:text-gray-200 font-medium transition">Testimonios</a>
         <a href="#galeria" class="text-white hover:text-gray-200 font-medium transition">Galería</a>
       </div>
 
       <!-- Menú móvil -->
-      <button id="menu-btn" class="md:hidden text-white focus:outline-none p-2 hover:bg-white/10 rounded-lg transition-colors">
+      <button id="menu-btn"
+        class="md:hidden text-white focus:outline-none p-2 hover:bg-white/10 rounded-lg transition-colors">
         <i data-lucide="menu" class="w-8 h-8"></i>
       </button>
     </div>
 
     <!-- Contenedor Menú Móvil (Overlay) -->
-    <div id="mobile-menu" class="fixed inset-0 bg-brand-dark/95 backdrop-blur-md z-[60] flex flex-col items-center justify-center space-y-8 transition-all duration-300 translate-x-full md:hidden">
+    <div id="mobile-menu"
+      class="fixed inset-0 bg-brand-dark/95 backdrop-blur-md z-[60] flex flex-col items-center justify-center space-y-8 transition-all duration-300 translate-x-full md:hidden">
       <button id="close-menu" class="absolute top-6 right-6 text-white hover:text-accent transition-colors">
         <i data-lucide="x" class="w-10 h-10"></i>
       </button>
-      <a href="#contacto" class="mobile-link text-white hover:text-accent text-2xl font-serif transition-colors">Asesoría Gratuita</a>
-      <a href="#nosotros" class="mobile-link text-white hover:text-accent text-2xl font-serif transition-colors">Nosotros</a>
-      <a href="#servicios" class="mobile-link text-white hover:text-accent text-2xl font-serif transition-colors">Servicios</a>
-      <a href="#galeria" class="mobile-link text-white hover:text-accent text-2xl font-serif transition-colors">Galería</a>
-      
+      <a href="#contacto"
+        class="mobile-link text-white hover:text-accent text-2xl font-serif transition-colors">Asesoría Gratuita</a>
+      <a href="#nosotros"
+        class="mobile-link text-white hover:text-accent text-2xl font-serif transition-colors">Nosotros</a>
+      <a href="#servicios"
+        class="mobile-link text-white hover:text-accent text-2xl font-serif transition-colors">Servicios</a>
+      <a href="#testimonios"
+        class="mobile-link text-white hover:text-accent text-2xl font-serif transition-colors">Testimonios</a>
+      <a href="#galeria"
+        class="mobile-link text-white hover:text-accent text-2xl font-serif transition-colors">Galería</a>
+
       <div class="pt-8 border-t border-accent/30 w-48 flex justify-center space-x-6">
-        <a href="https://www.facebook.com/search/top/?q=sue%C3%B1o%20real%20inmuebles" target="_blank" class="text-white hover:text-accent"><i data-lucide="facebook" class="w-6 h-6"></i></a>
-        <a href="https://wa.me/529993186865" target="_blank" class="text-white hover:text-accent"><i data-lucide="message-circle" class="w-6 h-6"></i></a>
+        <a href="https://www.facebook.com/search/top/?q=sue%C3%B1o%20real%20inmuebles" target="_blank"
+          class="text-white hover:text-accent"><i data-lucide="facebook" class="w-6 h-6"></i></a>
+        <a href="https://wa.me/529993186865" target="_blank" class="text-white hover:text-accent"><i
+            data-lucide="message-circle" class="w-6 h-6"></i></a>
       </div>
     </div>
   </nav>
@@ -181,8 +206,9 @@
           El hogar que imaginas, <span class="text-accent">el patrimonio que mereces.</span>
         </h1>
         <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto lg:mx-0 font-light">
-          Enfocada a encontrar la inversión ideal para cada cliente en <strong class="text-accent">Mérida, Yucatán</strong>, con
-          transparencia y compromiso. Conectamos personas con oportunidades inmobiliarias seguras y rentables.
+          Enfocada a encontrar la inversión ideal para cada cliente en <strong class="text-accent">Mérida,
+            Yucatán</strong>, con
+          transparencia y compromiso. Conectamos tu capital con oportunidades inmobiliarias seguras y rentables.
         </p>
         <div
           class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
@@ -201,7 +227,7 @@
       <div id="contacto" class="glass-form p-8 md:p-10 rounded-2xl w-full max-w-md mx-auto lg:ml-auto">
 
         <div id="form-header">
-          <h3 class="text-2xl font-serif font-bold text-brand-dark mb-2">Comienza tu proceso hoy</h3>
+          <h3 class="text-2xl font-serif font-bold text-brand-dark mb-2">Tu nuevo comienzo está aquí</h3>
           <p class="text-gray-600 text-sm mb-6">Estamos listos para atenderte. Haz clic en el botón inferior para hablar
             con un asesor experto por WhatsApp.</p>
         </div>
@@ -240,31 +266,38 @@
         <div
           class="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-white p-4 md:p-6 rounded-xl shadow-xl z-20 flex items-center space-x-3 md:space-x-4 border-l-4 border-accent">
           <div class="text-2xl md:text-4xl font-bold text-accent font-serif">10+</div>
-          <div class="text-[0.7rem] md:text-sm text-gray-600 font-medium leading-tight text-nowrap">Años de<br>Experiencia</div>
+          <div class="text-[0.7rem] md:text-sm text-gray-600 font-medium leading-tight text-nowrap">Años
+            de<br>Experiencia</div>
         </div>
       </div>
 
       <div class="reveal">
-        <h2 class="inline-block px-4 py-1.5 bg-accent text-brand-dark text-[0.65rem] font-bold uppercase tracking-[0.15em] rounded-full mb-4 shadow-sm">Por qué elegirnos</h2>
-        <h3 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6 font-serif">Tu patrimonio protegido en manos
+        <h2
+          class="inline-block px-4 py-1.5 bg-accent text-brand-dark text-[0.65rem] font-bold uppercase tracking-[0.15em] rounded-full mb-4 shadow-sm">
+          Por qué elegirnos</h2>
+        <h3 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6 font-serif">Tu patrimonio protegido en
+          manos
           expertas</h3>
         <p class="text-gray-600 mb-6 leading-relaxed">
-          En <strong>Sueño Real</strong> entendemos que una propiedad no es solo ladrillos, es el fruto de tu esfuerzo y
-          el escenario de tu futuro. Nuestra filosofía se basa en la transparencia absoluta, el trato ético y resultados
-          medibles.
+          En <strong>Sueño Real</strong> entendemos que una propiedad no es solo una adquisición: es el resultado de tu
+          esfuerzo y la base de tu futuro. Por eso, trabajamos con transparencia total, ética profesional y un enfoque
+          en resultados reales.
         </p>
 
         <ul class="space-y-4 mb-8">
           <li class="flex items-start space-x-3">
-            <div class="mt-1 bg-accent p-1 rounded-full shadow-sm"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-dark stroke-[3]"></i></div>
+            <div class="mt-1 bg-accent p-1 rounded-full shadow-sm"><i data-lucide="check"
+                class="w-3.5 h-3.5 text-brand-dark stroke-[3]"></i></div>
             <span class="text-gray-700">Avalúos precisos para vender al precio justo del mercado.</span>
           </li>
           <li class="flex items-start space-x-3">
-            <div class="mt-1 bg-accent p-1 rounded-full shadow-sm"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-dark stroke-[3]"></i></div>
+            <div class="mt-1 bg-accent p-1 rounded-full shadow-sm"><i data-lucide="check"
+                class="w-3.5 h-3.5 text-brand-dark stroke-[3]"></i></div>
             <span class="text-gray-700">Cartera de clientes pre-calificados para acelerar ventas y rentas.</span>
           </li>
           <li class="flex items-start space-x-3">
-            <div class="mt-1 bg-accent p-1 rounded-full shadow-sm"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-dark stroke-[3]"></i></div>
+            <div class="mt-1 bg-accent p-1 rounded-full shadow-sm"><i data-lucide="check"
+                class="w-3.5 h-3.5 text-brand-dark stroke-[3]"></i></div>
             <span class="text-gray-700">Acompañamiento integral hasta la entrega de llaves.</span>
           </li>
         </ul>
@@ -276,7 +309,9 @@
   <section id="servicios" class="py-16 md:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6 md:px-12">
       <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-        <h2 class="inline-block px-4 py-1.5 bg-accent text-brand-dark text-[0.65rem] font-bold uppercase tracking-[0.15em] rounded-full mb-4 shadow-sm">Nuestros Servicios</h2>
+        <h2
+          class="inline-block px-4 py-1.5 bg-accent text-brand-dark text-[0.65rem] font-bold uppercase tracking-[0.15em] rounded-full mb-4 shadow-sm">
+          Nuestros Servicios</h2>
         <h3 class="text-3xl md:text-4xl font-serif font-bold text-gray-900">Soluciones inmobiliarias a tu medida</h3>
       </div>
 
@@ -286,9 +321,11 @@
           class="bg-white p-8 rounded-2xl shadow-sm border border-gray-900/10 hover:shadow-2xl hover:border-accent hover:bg-yellow-50/50 transition-all duration-500 group reveal">
           <div
             class="w-14 h-14 bg-brand-dark/5 border border-brand-dark/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent group-hover:border-accent group-hover:scale-110 transition-all duration-300">
-            <i data-lucide="home" class="w-7 h-7 text-accent group-hover:text-brand-dark transition-colors duration-300"></i>
+            <i data-lucide="home"
+              class="w-7 h-7 text-accent group-hover:text-brand-dark transition-colors duration-300"></i>
           </div>
-          <h4 class="text-xl font-bold text-gray-900 mb-3 font-serif group-hover:text-yellow-600 transition-colors">Compra de Propiedades</h4>
+          <h4 class="text-xl font-bold text-gray-900 mb-3 font-serif group-hover:text-yellow-600 transition-colors">
+            Compra de Propiedades</h4>
           <p class="text-gray-600 text-sm leading-relaxed mb-4">Encuentra la casa, departamento o terreno ideal.
             Filtramos las mejores opciones del mercado según tu presupuesto y necesidades.</p>
         </div>
@@ -301,7 +338,8 @@
             <i data-lucide="building"
               class="w-7 h-7 text-accent group-hover:text-brand-dark transition-colors duration-300"></i>
           </div>
-          <h4 class="text-xl font-bold text-gray-900 mb-3 font-serif group-hover:text-yellow-600 transition-colors">Venta Segura</h4>
+          <h4 class="text-xl font-bold text-gray-900 mb-3 font-serif group-hover:text-yellow-600 transition-colors">
+            Venta Segura</h4>
           <p class="text-gray-600 text-sm leading-relaxed mb-4">Promocionamos tu inmueble en los mejores canales,
             gestionamos citas y negociamos para obtener el mejor rendimiento por tu patrimonio.</p>
         </div>
@@ -314,9 +352,80 @@
             <i data-lucide="file-signature"
               class="w-7 h-7 text-accent group-hover:text-brand-dark transition-colors duration-300"></i>
           </div>
-          <h4 class="text-xl font-bold text-gray-900 mb-3 font-serif group-hover:text-yellow-600 transition-colors">Gestión y Asesoría Legal</h4>
-          <p class="text-gray-600 text-sm leading-relaxed mb-4">Evita riesgos y sorpresas. Contamos con un equipo legal
-            que revisa contratos, escrituras y trámites notariales para tu total tranquilidad.</p>
+          <h4 class="text-xl font-bold text-gray-900 mb-3 font-serif group-hover:text-yellow-600 transition-colors">
+            Gestión y Asesoría Legal</h4>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">Minimiza riesgos con el respaldo de nuestro equipo
+            legal, que supervisa contratos, escrituras y cada proceso notarial para tu seguridad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Sección de Testimonios -->
+  <section id="testimonios" class="py-16 md:py-24 bg-yellow-50/40">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+        <h2
+          class="inline-block px-4 py-1.5 bg-accent text-brand-dark text-[0.65rem] font-bold uppercase tracking-[0.15em] rounded-full mb-4 shadow-sm">
+          Testimonios</h2>
+        <h3 class="text-3xl md:text-4xl font-serif font-bold text-gray-900">Lo que dicen nuestros clientes</h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testimonio 1 -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-900/10 hover:shadow-xl hover:border-accent transition-all duration-500 reveal relative">
+          <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-accent/30"></i>
+          <div class="flex items-center mb-6">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop" alt="Cliente María" class="w-14 h-14 rounded-full object-cover border-2 border-accent">
+            <div class="ml-4">
+              <h4 class="font-bold text-gray-900 font-serif">María Fernanda G.</h4>
+              <div class="flex text-accent mt-1">
+                <i data-lucide="star" class="w-4 h-4 text-accent fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 text-accent fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 text-accent fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 text-accent fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 text-accent fill-current"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed italic">"El proceso de compra de nuestra casa fue súper transparente y rápido. La asesoría legal nos dio mucha tranquilidad. Totalmente recomendados."</p>
+        </div>
+
+        <!-- Testimonio 2 -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-900/10 hover:shadow-xl hover:border-accent transition-all duration-500 reveal relative" style="transition-delay: 100ms;">
+          <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-accent/30"></i>
+          <div class="flex items-center mb-6">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop" alt="Cliente Roberto" class="w-14 h-14 rounded-full object-cover border-2 border-accent">
+            <div class="ml-4">
+              <h4 class="font-bold text-gray-900 font-serif">Roberto S.</h4>
+              <div class="flex text-accent mt-1">
+                <i data-lucide="star" class="w-4 h-4 text-accent fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 text-accent fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 text-accent fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 text-accent fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 text-accent fill-current"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed italic">"Vendí mi propiedad en Mérida en excelente tiempo gracias a su cartera de clientes. Excelentes profesionales y gran trato humano desde el día uno."</p>
+        </div>
+
+        <!-- Testimonio 3 -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-900/10 hover:shadow-xl hover:border-accent transition-all duration-500 reveal relative" style="transition-delay: 200ms;">
+          <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-accent/30"></i>
+          <div class="flex items-center mb-6">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop" alt="Cliente Ana" class="w-14 h-14 rounded-full object-cover border-2 border-accent">
+            <div class="ml-4">
+              <h4 class="font-bold text-gray-900 font-serif">Ana L.</h4>
+              <div class="flex text-accent mt-1">
+                <i data-lucide="star" class="w-4 h-4 text-accent fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 text-accent fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 text-accent fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 text-accent fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 text-accent fill-current"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed italic">"Buscábamos un departamento como inversión y nos guiaron paso a paso. Ahora tenemos una propiedad que genera rentabilidad segura. Gracias equipo."</p>
         </div>
       </div>
     </div>
@@ -326,7 +435,9 @@
   <section id="galeria" class="py-16 md:py-24 bg-brand-dark text-white">
     <div class="max-w-7xl mx-auto px-6 md:px-12">
       <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-        <h2 class="inline-block px-4 py-1.5 bg-accent text-brand-dark text-[0.65rem] font-bold uppercase tracking-[0.15em] rounded-full mb-4 shadow-sm">Galería de Propiedades</h2>
+        <h2
+          class="inline-block px-4 py-1.5 bg-accent text-brand-dark text-[0.65rem] font-bold uppercase tracking-[0.15em] rounded-full mb-4 shadow-sm">
+          Galería de Propiedades</h2>
         <h3 class="text-3xl md:text-4xl font-serif font-bold mb-6">Encuentra tu próximo espacio</h3>
       </div>
 
@@ -464,7 +575,8 @@
     <div class="max-w-7xl mx-auto px-6 md:px-12 mt-12 pt-8 border-t border-white/10 text-xs text-center text-gray-500">
       <p>&copy; 2026 Sueño Real Inmobiliaria. Todos los derechos reservados.</p>
       <p class="mt-2 text-[0.65rem] tracking-wider uppercase opacity-80">
-        Landing Page creada por <a href="https://rodrigodcp.com" target="_blank" class="text-accent hover:underline font-bold transition-all">RODRIGO DCP</a>
+        Landing Page creada por <a href="https://rodrigodcp.com" target="_blank"
+          class="text-accent hover:underline font-bold transition-all">RODRIGO DCP</a>
       </p>
     </div>
   </footer>
